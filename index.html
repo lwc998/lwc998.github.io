@@ -152,6 +152,146 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js之事件1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/">js之事件1</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/" class="archive-article-date">
+  	<time datetime="2020-09-10T13:51:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="各种事件及一些算法思想"><a href="#各种事件及一些算法思想" class="headerlink" title="各种事件及一些算法思想"></a>各种事件及一些算法思想</h3><ol>
+<li><p>表单：value改变表单里的值：input.value = “被点击了”; 禁用表单：disabled = true; </p>
+<p>this.disabled = true; this是指向事件函数的调用者</p>
+</li>
+<li><p>样式：1）行内样式：element.style = ‘’;2)类名样式：element.className</p>
+</li>
+<li><p>注册事件：1） 获得焦点事件：onfocus; 失去焦点事件：onblur;</p>
+<p>​                    2）移动或离开鼠标：onmouseover 和 onmouseout;</p>
+<p>​                    3）按住或松开鼠标：onmousedown和onmouseup;</p>
+<p>​                    4）点击：onclick</p>
+</li>
+<li><p>排他思想：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 1. 获取所有按钮元素</span><br><span class="line">       var btns &#x3D; document.getElementsByTagName(&#39;button&#39;);</span><br><span class="line">       &#x2F;&#x2F; btns得到的是伪数组  里面的每一个元素 btns[i] 所有的button注册事件onclick</span><br><span class="line">       for (var i &#x3D; 0; i &lt; btns.length; i++) &#123;</span><br><span class="line">           btns[i].onclick &#x3D; function() &#123;</span><br><span class="line">               &#x2F;&#x2F; (1) 我们先把所有的按钮背景颜色去掉  干掉所有人</span><br><span class="line">               for (var i &#x3D; 0; i &lt; btns.length; i++) &#123;</span><br><span class="line">                   btns[i].style.backgroundColor &#x3D; &#39;&#39;;</span><br><span class="line">               &#125;</span><br><span class="line">               &#x2F;&#x2F; (2) 然后才让当前的元素背景颜色为pink 留下我自己</span><br><span class="line">               this.style.backgroundColor &#x3D; &#39;pink&#39;;</span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       &#x2F;&#x2F;2. 首先先排除其他人，然后才设置自己的样式 这种排除其他人的思想我们成为排他思想</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><p>添加类名：btn.onclick = function{</p>
+<p>//直接覆盖原先的   this.className = ‘chage’;</p>
+<p>//不覆盖原先的       this.className = ‘原先 change’;}</p>
+</li>
+<li><p>复选框选中的状态：this.check,返回true为选中；false未选中</p>
+</li>
+<li><p>属性的操作：1）获取属性：element.属性——获取内置属性</p>
+<p>​                                                element.getAttribute(‘属性’)——获取自定义属性</p>
+</li>
+</ol>
+<p>（H5自定义属性名用data-开头；用驼峰命名）——获取用div.dataset.属性名或div.dataset.[‘属性’]</p>
+<p>​                              2）设置属性：element.属性 = ‘值’、class类名时用classname</p>
+<p>​                                                       element.setAttribute(‘属性’，’值’) 主要用于自定义属性</p>
+<p>​                             3）移除属性：element.removeAttribute(‘属性’)</p>
+<ol start="8">
+<li>除了innerHTML,也可用childNodes和nodeValue属性来获取元素</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementsByTagName(&quot;BUTTON&quot;)[0].childNodes[0].nodeValue;</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li><p>三种创建元素方式区别：1）document.write():创建元素（如果页面流动加载完毕，再调用导致重</p>
+<p>​                                                绘，之前加载的都没了</p>
+<p>​                                          2）element.innerHTML():创建多个元素效率高（不拼接字符，采取数组                                                形式拼接）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var inner &#x3D; document.querySelector(&#39;.inner&#39;);</span><br><span class="line">        &#x2F;&#x2F; for (var i &#x3D; 0; i &lt;&#x3D; 100; i++) &#123;</span><br><span class="line">        &#x2F;&#x2F;     inner.innerHTML +&#x3D; &#39;&lt;a href&#x3D;&quot;#&quot;&gt;百度&lt;&#x2F;a&gt;&#39;</span><br><span class="line">        &#x2F;&#x2F; &#125;</span><br><span class="line">        var arr &#x3D; [];</span><br><span class="line">        for (var i &#x3D; 0; i &lt;&#x3D; 100; i++) &#123;</span><br><span class="line">            arr.push(&#39;&lt;a href&#x3D;&quot;#&quot;&gt;百度&lt;&#x2F;a&gt;&#39;);</span><br><span class="line">        &#125;</span><br><span class="line">        inner.innerHTML &#x3D; arr.join(&#39;&#39;);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id&#x3D;&quot;p1&quot;&gt;Hello World!&lt;&#x2F;p&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">document.getElementById(&quot;p1&quot;).innerHTML&#x3D;&quot;New text!&quot;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<pre><code>                                         3）createElement()：创建多个元素效率低一点，但结构比较清晰</code></pre>
+<h3 id="节点操作"><a href="#节点操作" class="headerlink" title="节点操作"></a>节点操作</h3><ol>
+<li><p>父节点parentNode :erweima.parentNode(没用最近的父亲返回null)</p>
+</li>
+<li><p>子节点 </p>
+<ol>
+<li>childNodes 返回包含所有节点（包括元素、文本节点）</li>
+<li>children 返回元素节点</li>
+<li>parentNode.firstChild/lastChild  返回元素、文本节点</li>
+<li>parentNode.lastElementChild / firstElementChild  返回元素节点    ie9才支持</li>
+<li>实际开发parentchildren[0]</li>
+</ol>
+</li>
+<li><p>兄弟节点：</p>
+<ol>
+<li>下一个兄弟节点：nextSibling 包括所有节点 元素(换行/空格)、文本</li>
+<li>nextElementSibling:只有元素节点、previousSibling: ie9以上兼容</li>
+</ol>
+</li>
+<li><p>创建节点：document.createElement(‘tagName’); 创建之后要进行添加操作才能显示</p>
+</li>
+<li><p>添加节点 从后面追加：node.appendChild(child) :ul.appendChild(li) （node父亲、child儿子）</p>
+</li>
+<li><p>添加节点 从前追加：node.insertBefore(child追加的,指定元素ul.children[0])</p>
+</li>
+<li><p>删除节点：node父亲.removeChild(child)</p>
+</li>
+<li><p>复制节点：node.clone():括号内为空或false为浅拷贝，只复制标签、不复制内容；括号内为true为深拷贝</p>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-js二之旅" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -172,7 +312,57 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="API-和-Web-API"><a href="#API-和-Web-API" class="headerlink" title="API 和 Web API"></a>API 和 Web API</h3><ol>
+<li><p>API：提供一个接口，实现某种功能</p>
+</li>
+<li><p>Web API：浏览器提供的接口，主要针对浏览器做交互效果，一般有输入和输出（函数的传参和返回值）</p>
+</li>
+<li><p>DOM：一系列的接口，可处理标记语言；通过DOM接口可以改变网页的内容、结构和样式</p>
+</li>
+<li><p>文档：页面即文档 document；元素：标签即元素 element；节点：内容即节点（标签、属性、文本、注释），node （DOM把以上都看作对象）</p>
+</li>
+<li><p>获取页面中的元素：</p>
+<ol>
+<li><p>根据ID获取 ：document.getElementById();</p>
+</li>
+<li><p>根据标签名获取：document.getElementByTagName(‘标签名’)；伪数组形式存储，返回伪数组；多标签时需要指明父元素：console.log(ol[o父标签].getElementByTagName(‘标签名’))</p>
+</li>
+<li><p>H5新增的方法：</p>
+<ol>
+<li>document.getElementByClassName(‘类名’)</li>
+<li>document.querySelector(‘选择器’);返回第一个、选择器加符号：类选择器加.  id选择器加#</li>
+<li>document.querySelectorAll();选择全部</li>
+</ol>
+</li>
+<li><p>获取body元素：document.body //返回body元素对象</p>
+</li>
+<li><p>获取html元素：document.documentElement //返回html元素对象</p>
+</li>
+<li><p>事件三部曲：事件源、事件类型、事件处理程序</p>
+<ol>
+<li><p>事件源 事件被触发的对象 谁 按钮</p>
+<p>var btn = document.getElementById(‘btn’);</p>
+</li>
+<li><p>事件类型：如何触发事件 鼠标点击</p>
+</li>
+<li><p>事件处理程序：函数完成</p>
+<p>btn.onclick = function(){alert(‘点秋香’)}</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>执行事件步骤：1）获取事件源； 2）注册事件；3）添加事件处理程序</p>
+</li>
+<li><p>innerText：不识别Html标签 、去除空格和换行</p>
+</li>
+<li><p>innerHTML：识别Html标签、不去除空格和换行</p>
+</li>
+<li><p>src、href 和 id、alt、title标签也可当作事件源处理</p>
+</li>
+</ol>
+<p>​    </p>
+
       
 
       

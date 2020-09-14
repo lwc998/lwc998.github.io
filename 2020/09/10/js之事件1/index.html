@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Hexo</title>
+  <title>js之事件1 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="各种事件及一些算法思想 表单：value改变表单里的值：input.value &#x3D; “被点击了”; 禁用表单：disabled &#x3D; true;  this.disabled &#x3D; true; this是指向事件函数的调用者  样式：1）行内样式：element.style &#x3D; ‘’;2)类名样式：element.className  注册事件：1） 获得焦点事件：onfocus; 失去焦点事件：on">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js之事件1">
+<meta property="og:url" content="http://yoursite.com/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="各种事件及一些算法思想 表单：value改变表单里的值：input.value &#x3D; “被点击了”; 禁用表单：disabled &#x3D; true;  this.disabled &#x3D; true; this是指向事件函数的调用者  样式：1）行内样式：element.style &#x3D; ‘’;2)类名样式：element.className  注册事件：1） 获得焦点事件：onfocus; 失去焦点事件：on">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-10T13:51:48.000Z">
+<meta property="article:modified_time" content="2020-09-14T07:08:07.947Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,205 +154,233 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-js之事件1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      js之事件1
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/" class="archive-article-date">
+
+        
+        <a href="/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/" class="archive-article-date">
   	<time datetime="2020-09-10T13:51:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/">js之事件1</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="各种事件及一些算法思想"><a href="#各种事件及一些算法思想" class="headerlink" title="各种事件及一些算法思想"></a>各种事件及一些算法思想</h3><ol>
+<li><p>表单：value改变表单里的值：input.value = “被点击了”; 禁用表单：disabled = true; </p>
+<p>this.disabled = true; this是指向事件函数的调用者</p>
+</li>
+<li><p>样式：1）行内样式：element.style = ‘’;2)类名样式：element.className</p>
+</li>
+<li><p>注册事件：1） 获得焦点事件：onfocus; 失去焦点事件：onblur;</p>
+<p>​                    2）移动或离开鼠标：onmouseover 和 onmouseout;</p>
+<p>​                    3）按住或松开鼠标：onmousedown和onmouseup;</p>
+<p>​                    4）点击：onclick</p>
+</li>
+<li><p>排他思想：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 1. 获取所有按钮元素</span><br><span class="line">       var btns &#x3D; document.getElementsByTagName(&#39;button&#39;);</span><br><span class="line">       &#x2F;&#x2F; btns得到的是伪数组  里面的每一个元素 btns[i] 所有的button注册事件onclick</span><br><span class="line">       for (var i &#x3D; 0; i &lt; btns.length; i++) &#123;</span><br><span class="line">           btns[i].onclick &#x3D; function() &#123;</span><br><span class="line">               &#x2F;&#x2F; (1) 我们先把所有的按钮背景颜色去掉  干掉所有人</span><br><span class="line">               for (var i &#x3D; 0; i &lt; btns.length; i++) &#123;</span><br><span class="line">                   btns[i].style.backgroundColor &#x3D; &#39;&#39;;</span><br><span class="line">               &#125;</span><br><span class="line">               &#x2F;&#x2F; (2) 然后才让当前的元素背景颜色为pink 留下我自己</span><br><span class="line">               this.style.backgroundColor &#x3D; &#39;pink&#39;;</span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       &#x2F;&#x2F;2. 首先先排除其他人，然后才设置自己的样式 这种排除其他人的思想我们成为排他思想</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<ol start="5">
+<li><p>添加类名：btn.onclick = function{</p>
+<p>//直接覆盖原先的   this.className = ‘chage’;</p>
+<p>//不覆盖原先的       this.className = ‘原先 change’;}</p>
+</li>
+<li><p>复选框选中的状态：this.check,返回true为选中；false未选中</p>
+</li>
+<li><p>属性的操作：1）获取属性：element.属性——获取内置属性</p>
+<p>​                                                element.getAttribute(‘属性’)——获取自定义属性</p>
+</li>
+</ol>
+<p>（H5自定义属性名用data-开头；用驼峰命名）——获取用div.dataset.属性名或div.dataset.[‘属性’]</p>
+<p>​                              2）设置属性：element.属性 = ‘值’、class类名时用classname</p>
+<p>​                                                       element.setAttribute(‘属性’，’值’) 主要用于自定义属性</p>
+<p>​                             3）移除属性：element.removeAttribute(‘属性’)</p>
+<ol start="8">
+<li>除了innerHTML,也可用childNodes和nodeValue属性来获取元素</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementsByTagName(&quot;BUTTON&quot;)[0].childNodes[0].nodeValue;</span><br></pre></td></tr></table></figure>
 
+<ol start="9">
+<li><p>三种创建元素方式区别：1）document.write():创建元素（如果页面流动加载完毕，再调用导致重</p>
+<p>​                                                绘，之前加载的都没了</p>
+<p>​                                          2）element.innerHTML():创建多个元素效率高（不拼接字符，采取数组                                                形式拼接）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var inner &#x3D; document.querySelector(&#39;.inner&#39;);</span><br><span class="line">        &#x2F;&#x2F; for (var i &#x3D; 0; i &lt;&#x3D; 100; i++) &#123;</span><br><span class="line">        &#x2F;&#x2F;     inner.innerHTML +&#x3D; &#39;&lt;a href&#x3D;&quot;#&quot;&gt;百度&lt;&#x2F;a&gt;&#39;</span><br><span class="line">        &#x2F;&#x2F; &#125;</span><br><span class="line">        var arr &#x3D; [];</span><br><span class="line">        for (var i &#x3D; 0; i &lt;&#x3D; 100; i++) &#123;</span><br><span class="line">            arr.push(&#39;&lt;a href&#x3D;&quot;#&quot;&gt;百度&lt;&#x2F;a&gt;&#39;);</span><br><span class="line">        &#125;</span><br><span class="line">        inner.innerHTML &#x3D; arr.join(&#39;&#39;);</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id&#x3D;&quot;p1&quot;&gt;Hello World!&lt;&#x2F;p&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">document.getElementById(&quot;p1&quot;).innerHTML&#x3D;&quot;New text!&quot;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<pre><code>                                         3）createElement()：创建多个元素效率低一点，但结构比较清晰</code></pre>
+<h3 id="节点操作"><a href="#节点操作" class="headerlink" title="节点操作"></a>节点操作</h3><ol>
+<li><p>父节点parentNode :erweima.parentNode(没用最近的父亲返回null)</p>
+</li>
+<li><p>子节点 </p>
+<ol>
+<li>childNodes 返回包含所有节点（包括元素、文本节点）</li>
+<li>children 返回元素节点</li>
+<li>parentNode.firstChild/lastChild  返回元素、文本节点</li>
+<li>parentNode.lastElementChild / firstElementChild  返回元素节点    ie9才支持</li>
+<li>实际开发parentchildren[0]</li>
+</ol>
+</li>
+<li><p>兄弟节点：</p>
+<ol>
+<li>下一个兄弟节点：nextSibling 包括所有节点 元素(换行/空格)、文本</li>
+<li>nextElementSibling:只有元素节点、previousSibling: ie9以上兼容</li>
+</ol>
+</li>
+<li><p>创建节点：document.createElement(‘tagName’); 创建之后要进行添加操作才能显示</p>
+</li>
+<li><p>添加节点 从后面追加：node.appendChild(child) :ul.appendChild(li) （node父亲、child儿子）</p>
+</li>
+<li><p>添加节点 从前追加：node.insertBefore(child追加的,指定元素ul.children[0])</p>
+</li>
+<li><p>删除节点：node父亲.removeChild(child)</p>
+</li>
+<li><p>复制节点：node.clone():括号内为空或false为浅拷贝，只复制标签、不复制内容；括号内为true为深拷贝</p>
+</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/08/js%E4%BA%8C%E4%B9%8B%E6%97%85/" class="archive-article-date">
-  	<time datetime="2020-09-08T12:54:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/09/08/js%E4%BA%8C%E4%B9%8B%E6%97%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js二之旅</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/08/js%E4%BA%8C%E4%B9%8B%E6%97%85/">js二之旅</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/07/js%E7%AC%AC%E4%BA%94%E5%A4%A9/" class="archive-article-date">
-  	<time datetime="2020-09-07T12:48:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/07/js%E7%AC%AC%E4%BA%94%E5%A4%A9/">js第五天</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/03/js%E4%B9%8B%E6%97%85/" class="archive-article-date">
-  	<time datetime="2020-09-03T12:41:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/03/js%E4%B9%8B%E6%97%85/">js之旅</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/01/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-09-01T12:11:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/01/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">第一篇博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/01/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-09-01T12:01:16.897Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/01/hello-world/" class="archive-article-date">
-  	<time datetime="2020-09-01T11:55:03.779Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/01/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -371,8 +403,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
