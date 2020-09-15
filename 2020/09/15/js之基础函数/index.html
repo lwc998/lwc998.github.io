@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>js之事件1 | Hexo</title>
+  <title>js之基础函数 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="各种事件及一些算法思想 表单：value改变表单里的值：input.value &#x3D; “被点击了”; 禁用表单：disabled &#x3D; true;  this.disabled &#x3D; true; this是指向事件函数的调用者  样式：1）行内样式：element.style &#x3D; ‘’;2)类名样式：element.className  注册事件：1） 获得焦点事件：onfocus; 失去焦点事件：on">
+  <meta name="description" content="函数声明 格式：function 函数名(形参) { 函数体}；调用时：函数名(实参)  注意：当实参个数&lt;形参个数时一个为undefined，打印输出为NaN  打印不在函数内，在调用时用一个变量接受函数返回的结果；return只返回最后一个值；没有return时返回undeifined  arguments对象中存储了传递的所有实参，只有函数才有 12345678910&#x2F;&amp;#x">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js之事件1">
-<meta property="og:url" content="http://yoursite.com/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/index.html">
+<meta property="og:title" content="js之基础函数">
+<meta property="og:url" content="http://yoursite.com/2020/09/15/js%E4%B9%8B%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="各种事件及一些算法思想 表单：value改变表单里的值：input.value &#x3D; “被点击了”; 禁用表单：disabled &#x3D; true;  this.disabled &#x3D; true; this是指向事件函数的调用者  样式：1）行内样式：element.style &#x3D; ‘’;2)类名样式：element.className  注册事件：1） 获得焦点事件：onfocus; 失去焦点事件：on">
+<meta property="og:description" content="函数声明 格式：function 函数名(形参) { 函数体}；调用时：函数名(实参)  注意：当实参个数&lt;形参个数时一个为undefined，打印输出为NaN  打印不在函数内，在调用时用一个变量接受函数返回的结果；return只返回最后一个值；没有return时返回undeifined  arguments对象中存储了传递的所有实参，只有函数才有 12345678910&#x2F;&amp;#x">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-10T13:51:48.000Z">
-<meta property="article:modified_time" content="2020-09-14T07:08:07.947Z">
+<meta property="article:published_time" content="2020-09-15T08:53:56.000Z">
+<meta property="article:modified_time" content="2020-09-15T12:01:30.800Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -154,102 +154,88 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js之事件1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-js之基础函数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      js之事件1
+      js之基础函数
     </h1>
   
 
         
-        <a href="/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/" class="archive-article-date">
-  	<time datetime="2020-09-10T13:51:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-10</time>
+        <a href="/2020/09/15/js%E4%B9%8B%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-09-15T08:53:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="各种事件及一些算法思想"><a href="#各种事件及一些算法思想" class="headerlink" title="各种事件及一些算法思想"></a>各种事件及一些算法思想</h3><ol>
-<li><p>表单：value改变表单里的值：input.value = “被点击了”; 禁用表单：disabled = true; </p>
-<p>this.disabled = true; this是指向事件函数的调用者</p>
+        <h3 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h3><ol>
+<li><p>格式：function 函数名(形参) { 函数体}；调用时：函数名(实参)</p>
 </li>
-<li><p>样式：1）行内样式：element.style = ‘’;2)类名样式：element.className</p>
+<li><p>注意：当实参个数&lt;形参个数时一个为undefined，打印输出为NaN</p>
 </li>
-<li><p>注册事件：1） 获得焦点事件：onfocus; 失去焦点事件：onblur;</p>
-<p>​                    2）移动或离开鼠标：onmouseover 和 onmouseout;</p>
-<p>​                    3）按住或松开鼠标：onmousedown和onmouseup;</p>
-<p>​                    4）点击：onclick</p>
+<li><p>打印不在函数内，在调用时用一个变量接受函数返回的结果；return只返回最后一个值；没有return时返回undeifined</p>
 </li>
-<li><p>排他思想：</p>
+<li><p>arguments对象中存储了传递的所有实参，只有函数才有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; arguments 的使用  只有函数才有 arguments对象  而且是每个函数都内置好了这个arguments</span><br><span class="line">        function fn() &#123;</span><br><span class="line">            &#x2F;&#x2F; console.log(arguments); &#x2F;&#x2F; 里面存储了所有传递过来的实参  arguments &#x3D; [1,2,3]</span><br><span class="line">            &#x2F;&#x2F; console.log(arguments.length);</span><br><span class="line">            &#x2F;&#x2F; console.log(arguments[2]);</span><br><span class="line">            &#x2F;&#x2F; 我们可以按照数组的方式遍历arguments</span><br><span class="line">            for (var i &#x3D; 0; i &lt; arguments.length; i++) &#123;</span><br><span class="line">                console.log(arguments[i]);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 1. 获取所有按钮元素</span><br><span class="line">       var btns &#x3D; document.getElementsByTagName(&#39;button&#39;);</span><br><span class="line">       &#x2F;&#x2F; btns得到的是伪数组  里面的每一个元素 btns[i] 所有的button注册事件onclick</span><br><span class="line">       for (var i &#x3D; 0; i &lt; btns.length; i++) &#123;</span><br><span class="line">           btns[i].onclick &#x3D; function() &#123;</span><br><span class="line">               &#x2F;&#x2F; (1) 我们先把所有的按钮背景颜色去掉  干掉所有人</span><br><span class="line">               for (var i &#x3D; 0; i &lt; btns.length; i++) &#123;</span><br><span class="line">                   btns[i].style.backgroundColor &#x3D; &#39;&#39;;</span><br><span class="line">               &#125;</span><br><span class="line">               &#x2F;&#x2F; (2) 然后才让当前的元素背景颜色为pink 留下我自己</span><br><span class="line">               this.style.backgroundColor &#x3D; &#39;pink&#39;;</span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       &#x2F;&#x2F;2. 首先先排除其他人，然后才设置自己的样式 这种排除其他人的思想我们成为排他思想</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li><p>添加类名：btn.onclick = function{</p>
-<p>//直接覆盖原先的   this.className = ‘chage’;</p>
-<p>//不覆盖原先的       this.className = ‘原先 change’;}</p>
+<li><p>匿名函数：var 变量名 = function(){}；</p>
 </li>
-<li><p>复选框选中的状态：this.check,返回true为选中；false未选中</p>
+<li><p>变量作用域：在函数内没有声明直接赋值是全局变量；</p>
 </li>
-<li><p>属性的操作：1）获取属性：element.属性——获取内置属性</p>
-<p>​                                                element.getAttribute(‘属性’)——获取自定义属性</p>
+<li><p>js引擎运行机制：预解析、代码执行</p>
 </li>
-</ol>
-<p>（H5自定义属性名用data-开头；用驼峰命名）——获取用div.dataset.属性名或div.dataset.[‘属性’]</p>
-<p>​                              2）设置属性：element.属性 = ‘值’、class类名时用classname</p>
-<p>​                                                       element.setAttribute(‘属性’，’值’) 主要用于自定义属性</p>
-<p>​                             3）移除属性：element.removeAttribute(‘属性’)</p>
-<ol start="8">
-<li>除了innerHTML,也可用childNodes和nodeValue属性来获取元素</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementsByTagName(&quot;BUTTON&quot;)[0].childNodes[0].nodeValue;</span><br></pre></td></tr></table></figure>
-
-<ol start="9">
-<li><p>三种创建元素方式区别：1）document.write():创建元素（如果页面流动加载完毕，再调用导致重</p>
-<p>​                                                绘，之前加载的都没了</p>
-<p>​                                          2）element.innerHTML():创建多个元素效率高（不拼接字符，采取数组                                                形式拼接）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var inner &#x3D; document.querySelector(&#39;.inner&#39;);</span><br><span class="line">        &#x2F;&#x2F; for (var i &#x3D; 0; i &lt;&#x3D; 100; i++) &#123;</span><br><span class="line">        &#x2F;&#x2F;     inner.innerHTML +&#x3D; &#39;&lt;a href&#x3D;&quot;#&quot;&gt;百度&lt;&#x2F;a&gt;&#39;</span><br><span class="line">        &#x2F;&#x2F; &#125;</span><br><span class="line">        var arr &#x3D; [];</span><br><span class="line">        for (var i &#x3D; 0; i &lt;&#x3D; 100; i++) &#123;</span><br><span class="line">            arr.push(&#39;&lt;a href&#x3D;&quot;#&quot;&gt;百度&lt;&#x2F;a&gt;&#39;);</span><br><span class="line">        &#125;</span><br><span class="line">        inner.innerHTML &#x3D; arr.join(&#39;&#39;);</span><br></pre></td></tr></table></figure>
-
-
-
+<li><p>预解析：var和function提升到当前作用域最前；不提升赋值操作，不调用函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">console.log(num); &#x2F;&#x2F; undefined  坑 1</span><br><span class="line">        var num &#x3D; 10;</span><br><span class="line">        &#x2F;&#x2F; 相当于执行了以下代码</span><br><span class="line">        &#x2F;&#x2F; var num;</span><br><span class="line">        &#x2F;&#x2F; console.log(num);</span><br><span class="line">        &#x2F;&#x2F; num &#x3D; 10;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建对象：1）字面量：obj = {,}；调用：obj.属性名；obj[‘属性名’]；</p>
+<p>​                   2）利用new Object()：var obj = new Object()</p>
+<p>​                   3）构造函数：指定一大类</p>
+<p>​                        function 构造名{   构造名首字母大写</p>
+<p>​                                this.属性 = 值；</p>
+<p>​                                this.方法 = function(){}</p>
+<p>​                        }</p>
+<p>​                   4）调用：new 构造名(实参，…),构造函数不用return，返回是对象</p>
 </li>
 </ol>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id&#x3D;&quot;p1&quot;&gt;Hello World!&lt;&#x2F;p&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">document.getElementById(&quot;p1&quot;).innerHTML&#x3D;&quot;New text!&quot;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Hero(uname, type, blood, attack)&#123;</span><br><span class="line">            this.name &#x3D; uname;</span><br><span class="line">            this.type &#x3D; type;</span><br><span class="line">            this.blood &#x3D; blood;</span><br><span class="line">            this.attack &#x3D; attack;</span><br><span class="line">        &#125;</span><br><span class="line">        var lp &#x3D; new Hero(&#39;廉颇&#39;, &#39;力量型&#39;, &#39;500血量&#39;, &#39;近战&#39;);</span><br><span class="line">        console.log (lp)</span><br><span class="line">        var hy &#x3D; new Hero(&#39;后羿&#39;, &#39;射手型&#39;, &#39;100血量&#39;, &#39;远程&#39;);</span><br><span class="line">        console.log(hy);</span><br></pre></td></tr></table></figure>
 
-<pre><code>                                         3）createElement()：创建多个元素效率低一点，但结构比较清晰</code></pre>
-<h3 id="节点操作"><a href="#节点操作" class="headerlink" title="节点操作"></a>节点操作</h3><ol>
-<li><p>父节点parentNode :erweima.parentNode(没用最近的父亲返回null)</p>
+<ol start="10">
+<li><p>对象调用步骤：1）new在内存中创建一个空的对象；2）this指向刚才创建空对象；3）添加属性和方法；4）返回新对象</p>
 </li>
-<li><p>子节点 </p>
-<ol>
-<li>childNodes 返回包含所有节点（包括元素、文本节点）</li>
-<li>children 返回元素节点</li>
-<li>parentNode.firstChild/lastChild  返回元素、文本节点</li>
-<li>parentNode.lastElementChild / firstElementChild  返回元素节点    ie9才支持</li>
-<li>实际开发parentchildren[0]</li>
+<li><p>遍历对象：for(var 变量 in obj){console.log(obj.[变量])  }；变量为k\key;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (var k in obj) &#123;</span><br><span class="line">            console.log(k); &#x2F;&#x2F; k 变量 输出  得到的是 属性名</span><br><span class="line">            console.log(obj[k]); &#x2F;&#x2F; obj[k] 得到是 属性值</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>js对象：自定义对象、内置对象、浏览器对象</p>
+</li>
+<li><p>内置对象：Math.floor(向下取整)；Math.ceil(向上取整)；Math.round(四舍五入)特殊的有负数.5取大；Math.random()[0,1]随机取值；</p>
+</li>
+<li><p>Date()构造函数：var date = new Date()创建对象、实例化取当前时间；date.getFullYear()当前年；date.getMonth()+1当前月需要加1;</p>
+</li>
+<li><p>计算总毫秒：从1970开始  1）date.valueOf()  2）getTime()  3)最简单：date =+ new Date()  </p>
+<p>4）H5新增：Date.new()</p>
+</li>
 </ol>
+<h4 id="基本包装类型"><a href="#基本包装类型" class="headerlink" title="基本包装类型"></a>基本包装类型</h4><ol>
+<li><p>生成临时变量，把简单包装为复杂数据类型：var temp = new String(‘andy’); 赋值：srt = temp;</p>
+<p>销毁：temp = null;</p>
 </li>
-<li><p>兄弟节点：</p>
-<ol>
-<li>下一个兄弟节点：nextSibling 包括所有节点 元素(换行/空格)、文本</li>
-<li>nextElementSibling:只有元素节点、previousSibling: ie9以上兼容</li>
 </ol>
+<h4 id="字符"><a href="#字符" class="headerlink" title="字符"></a>字符</h4><ol>
+<li><p>根据位置返回字符：charAt(index);H5新增：str[index]</p>
 </li>
-<li><p>创建节点：document.createElement(‘tagName’); 创建之后要进行添加操作才能显示</p>
+<li><p>返回相应索引号的字符的ASCII码：charCodeAt(index)</p>
 </li>
-<li><p>添加节点 从后面追加：node.appendChild(child) :ul.appendChild(li) （node父亲、child儿子）</p>
-</li>
-<li><p>添加节点 从前追加：node.insertBefore(child追加的,指定元素ul.children[0])</p>
-</li>
-<li><p>删除节点：node父亲.removeChild(child)</p>
-</li>
-<li><p>复制节点：node.clone():括号内为空或false为浅拷贝，只复制标签、不复制内容；括号内为true为深拷贝</p>
+<li><p>对象[‘属性’]：判断有无该属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var o &#x3D; &#123;&#125;;o[]判断；k in o(属性名);o[k]是属性值 </span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ol>
 
@@ -331,7 +317,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/15/js%E4%B9%8B%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -345,18 +331,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/09/15/js%E4%B9%8B%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          js之基础函数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/09/08/js%E4%BA%8C%E4%B9%8B%E6%97%85/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js二之旅</div>
+    <a href="/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js之事件1</div>
       <i class="icon-circle-right"></i>
     </a>
   
