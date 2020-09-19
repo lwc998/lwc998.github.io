@@ -152,6 +152,113 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js之BOM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/19/js%E4%B9%8BBOM/">js之BOM</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/19/js%E4%B9%8BBOM/" class="archive-article-date">
+  	<time datetime="2020-09-19T01:57:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="BOM的构成"><a href="#BOM的构成" class="headerlink" title="BOM的构成"></a>BOM的构成</h3><p>1.window对象是浏览器的顶级对象</p>
+<p>2.js访问浏览器窗口的一个借口</p>
+<p>3.它是一个全局变量。定义在全局作用域中的变量、函数都变成window对象的属性和方法</p>
+<h4 id="页面加载时间"><a href="#页面加载时间" class="headerlink" title="页面加载时间"></a>页面加载时间</h4><p>1.load等页面内容全部加载完毕，包含页面dom元素 图 flash css等</p>
+<p>2.DOMContentLoaded是DOM加载完毕，不包含图、flash、CSS等； 速度比load快一些</p>
+<h4 id="调整窗口大小事件-resize"><a href="#调整窗口大小事件-resize" class="headerlink" title="调整窗口大小事件 resize"></a>调整窗口大小事件 resize</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">window.onresize &#x3D; function()&#123;&#125;;</span><br><span class="line">window.addEventListener(&quot;resize&quot;, function()&#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>1.调整窗口大小加载事件，当触发时就调用函数</p>
+<p>2.利用这件事完成响应式布局，window.innerWidth当前屏幕宽度</p>
+<h4 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h4><p>1.定时器setTimeout(调用函数，[延迟毫秒数(省略为0)])</p>
+<p>1.1调用函数可以直接写函数，或者写函数名，或者’函数名()’不推荐这种</p>
+<p>1.2多个时，给它赋值一个标识符 var time1 =</p>
+<p>1.3回调函数setTimeout(fn, 30)；30秒后调用函数fn element.onclick = function(){}和监听事件都可以用</p>
+<p>2.停止setTimeout()定时器：clearTimeout(timeoutID)</p>
+<p>3.setInterval(调用函数，[间隔毫秒数]) ；用法与setTimeout()相似</p>
+<p>4.停止setInterval()定时器：clearsetInterval(timer)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">全局变量 var timer &#x3D; null;</span><br><span class="line">		begin.addEventListener(&#39;click&#39;, function()&#123;</span><br><span class="line">				timer &#x3D; setInterval(...)</span><br><span class="line">		&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="this指向问题"><a href="#this指向问题" class="headerlink" title="this指向问题"></a>this指向问题</h4><p>1.一般情况this的最终指向调用它的对象</p>
+<p>2.全局作用于或者普通函数中this指向全局对象window</p>
+<p>3.方法调用中谁调用this指向谁</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">封装：var o &#x3D; &#123;</span><br><span class="line">		sayHi:function()&#123;</span><br><span class="line">			console.log(this); &#x2F;&#x2F;this指向o这个对象</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line">	o.sayHi();</span><br><span class="line">点击事件：btn.onclick &#x3D; function()&#123;</span><br><span class="line">			console.log(this); &#x2F;&#x2F;this指向btn</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.构造函数中this指向构造函数实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function Fun()&#123;</span><br><span class="line">		console.log(this);&#x2F;&#x2F;this指向下面的fun实例对象</span><br><span class="line">&#125;</span><br><span class="line">var fun &#x3D; new Fun(0); &#x2F;&#x2F;Fun()指向fun</span><br></pre></td></tr></table></figure>
+
+<h4 id="js执行机制：单线程分为同步和异步"><a href="#js执行机制：单线程分为同步和异步" class="headerlink" title="js执行机制：单线程分为同步和异步"></a>js执行机制：单线程分为同步和异步</h4><p>1.同步任务：在主线程上执行，形成一个执行栈</p>
+<p>2.异步任务：js的异步是通过回调函数实现的</p>
+<p>2.1异步有三种：1）普通事件click、resize 2)资源加载load、error 3）定时器setInterval、setTimeout</p>
+<p>2.2回调函数加到任务队列</p>
+<p>![js执行机制](F:\wc\html5\code\exercise\js2\ex img\js执行机制.png)</p>
+<h4 id="三种对象"><a href="#三种对象" class="headerlink" title="三种对象"></a>三种对象</h4><p>1.location 对象</p>
+<p>​    1）location.herf: 获取或设置整个URL</p>
+<p>​    统一资源定位符 (Uniform Resource Locator, URL) 是互联网上标准资源的地址。互联网上的每个文件    都有一个唯一的 URL，它包含的信息指出文件的位置以及浏览器应该怎么处理它。</p>
+<p>​    2）location.search：返回参数</p>
+<p>2.location 对象的方法</p>
+<p>​    1）location.assignl()：跟href一样，可以跳转页面 页面后退</p>
+<p>​    2）location.replace()：替换当前页面，因为不记录历史，不能后退</p>
+<p>​    3）location.reload()：刷新</p>
+<p>3.navigator对象</p>
+<p>属性有：userAgent,客户机——服务器——得到user-agent头部的值，可以判断哪种客户机PC or 移动</p>
+<p>4.history对象方法</p>
+<p>​    history.back()：后退功能</p>
+<p>​    history.forward()：前进功能</p>
+<p>​    history.go(参数)：前进为1；后退为-1</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/19/js%E4%B9%8BBOM/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-js之高级事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

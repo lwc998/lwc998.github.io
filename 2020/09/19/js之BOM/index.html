@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>js之高级事件 | Hexo</title>
+  <title>js之BOM | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="高级事件1.注册事件有两种：传统方式和方法监听注册方式 ​    1）传统：注册事件唯一性，同一个元素同一个事件只能设置一个处理函数，后面覆盖前面 ​    2）方法监听：（IE9以前用attachEvent()代替）； 12eventTarget目标对象.addEventListener(type事件类型,listener函数[,useCapture(true捕获阶段、false冒泡阶段)])t">
+  <meta name="description" content="BOM的构成1.window对象是浏览器的顶级对象 2.js访问浏览器窗口的一个借口 3.它是一个全局变量。定义在全局作用域中的变量、函数都变成window对象的属性和方法 页面加载时间1.load等页面内容全部加载完毕，包含页面dom元素 图 flash css等 2.DOMContentLoaded是DOM加载完毕，不包含图、flash、CSS等； 速度比load快一些 调整窗口大小事件 re">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js之高级事件">
-<meta property="og:url" content="http://yoursite.com/2020/09/17/js%E4%B9%8B%E9%AB%98%E7%BA%A7%E4%BA%8B%E4%BB%B6/index.html">
+<meta property="og:title" content="js之BOM">
+<meta property="og:url" content="http://yoursite.com/2020/09/19/js%E4%B9%8BBOM/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="高级事件1.注册事件有两种：传统方式和方法监听注册方式 ​    1）传统：注册事件唯一性，同一个元素同一个事件只能设置一个处理函数，后面覆盖前面 ​    2）方法监听：（IE9以前用attachEvent()代替）； 12eventTarget目标对象.addEventListener(type事件类型,listener函数[,useCapture(true捕获阶段、false冒泡阶段)])t">
+<meta property="og:description" content="BOM的构成1.window对象是浏览器的顶级对象 2.js访问浏览器窗口的一个借口 3.它是一个全局变量。定义在全局作用域中的变量、函数都变成window对象的属性和方法 页面加载时间1.load等页面内容全部加载完毕，包含页面dom元素 图 flash css等 2.DOMContentLoaded是DOM加载完毕，不包含图、flash、CSS等； 速度比load快一些 调整窗口大小事件 re">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-17T12:56:36.000Z">
-<meta property="article:modified_time" content="2020-09-18T13:43:02.630Z">
+<meta property="article:published_time" content="2020-09-19T01:57:33.000Z">
+<meta property="article:modified_time" content="2020-09-19T04:09:04.704Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -154,74 +154,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js之高级事件" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-js之BOM" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      js之高级事件
+      js之BOM
     </h1>
   
 
         
-        <a href="/2020/09/17/js%E4%B9%8B%E9%AB%98%E7%BA%A7%E4%BA%8B%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2020-09-17T12:56:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
+        <a href="/2020/09/19/js%E4%B9%8BBOM/" class="archive-article-date">
+  	<time datetime="2020-09-19T01:57:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="高级事件"><a href="#高级事件" class="headerlink" title="高级事件"></a>高级事件</h3><p>1.注册事件有两种：传统方式和方法监听注册方式</p>
-<p>​    1）传统：注册事件唯一性，同一个元素同一个事件只能设置一个处理函数，后面覆盖前面</p>
-<p>​    2）方法监听：（IE9以前用attachEvent()代替）；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">eventTarget目标对象.addEventListener(type事件类型,listener函数[,useCapture(true捕获阶段、false冒泡阶段)])</span><br><span class="line">type:加&#39;&#39;字符型，不加on</span><br></pre></td></tr></table></figure>
+        <h3 id="BOM的构成"><a href="#BOM的构成" class="headerlink" title="BOM的构成"></a>BOM的构成</h3><p>1.window对象是浏览器的顶级对象</p>
+<p>2.js访问浏览器窗口的一个借口</p>
+<p>3.它是一个全局变量。定义在全局作用域中的变量、函数都变成window对象的属性和方法</p>
+<h4 id="页面加载时间"><a href="#页面加载时间" class="headerlink" title="页面加载时间"></a>页面加载时间</h4><p>1.load等页面内容全部加载完毕，包含页面dom元素 图 flash css等</p>
+<p>2.DOMContentLoaded是DOM加载完毕，不包含图、flash、CSS等； 速度比load快一些</p>
+<h4 id="调整窗口大小事件-resize"><a href="#调整窗口大小事件-resize" class="headerlink" title="调整窗口大小事件 resize"></a>调整窗口大小事件 resize</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">window.onresize &#x3D; function()&#123;&#125;;</span><br><span class="line">window.addEventListener(&quot;resize&quot;, function()&#123;&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>2.删除事件：</p>
-<p>​    1）传统方式：注册事件函数内divs[0].onclick = null;</p>
-<p>​    2）removeEventListener 删除事件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">2)divs[1].addEventListener(&#39;click&#39;, fn) 函数调用不用小括号</span><br><span class="line">function fn()&#123;</span><br><span class="line">	alert(22);</span><br><span class="line">	divs[1].removeEventListener(&#39;click&#39;, fn)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">3)divs[2].attachEvent(&#39;onclick&#39;, fn1);</span><br><span class="line">  function fn1()&#123;</span><br><span class="line">  	alert(33);</span><br><span class="line">  	divs[2].detachEvent(&#39;onclick&#39;, du)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>1.调整窗口大小加载事件，当触发时就调用函数</p>
+<p>2.利用这件事完成响应式布局，window.innerWidth当前屏幕宽度</p>
+<h4 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h4><p>1.定时器setTimeout(调用函数，[延迟毫秒数(省略为0)])</p>
+<p>1.1调用函数可以直接写函数，或者写函数名，或者’函数名()’不推荐这种</p>
+<p>1.2多个时，给它赋值一个标识符 var time1 =</p>
+<p>1.3回调函数setTimeout(fn, 30)；30秒后调用函数fn element.onclick = function(){}和监听事件都可以用</p>
+<p>2.停止setTimeout()定时器：clearTimeout(timeoutID)</p>
+<p>3.setInterval(调用函数，[间隔毫秒数]) ；用法与setTimeout()相似</p>
+<p>4.停止setInterval()定时器：clearsetInterval(timer)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">全局变量 var timer &#x3D; null;</span><br><span class="line">		begin.addEventListener(&#39;click&#39;, function()&#123;</span><br><span class="line">				timer &#x3D; setInterval(...)</span><br><span class="line">		&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="DOM事件流：传播过程"><a href="#DOM事件流：传播过程" class="headerlink" title="DOM事件流：传播过程"></a>DOM事件流：传播过程</h3><p>3个阶段：1）捕获阶段 2）当前目标阶段 3）冒泡阶段</p>
-<p>1.js只能执行捕获或者冒泡中的一个阶段</p>
-<p>2.onclick和attachEven(ie版)事件只能冒泡阶段</p>
-<p>3.捕获阶段  如果addEventListener( , , 3)第三个参数为true</p>
-<p>  处于捕获阶段：document——html——body——father——son</p>
-<p>4.冒泡阶段  如果addEventListener( , , 3)第三个参数为false或省略</p>
-<p>  处于冒泡阶段：son——father——body——html——document</p>
-<p>5.一般情况更关注事件的冒泡，有些事无冒泡，比如onblur、onfocus、onmouseenter、     onmouseleave</p>
-<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><p>1.事件对象：事件一系列相关数据的集合</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">div.onclick &#x3D; function(e) &#123;</span><br><span class="line">		e &#x3D; e || window.event 兼容性ie678</span><br><span class="line">		console.log(e);</span><br><span class="line">&#125;</span><br><span class="line">div.addEventListener(&#39;click&#39;, function(e)&#123;</span><br><span class="line">		console.log(e);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="this指向问题"><a href="#this指向问题" class="headerlink" title="this指向问题"></a>this指向问题</h4><p>1.一般情况this的最终指向调用它的对象</p>
+<p>2.全局作用于或者普通函数中this指向全局对象window</p>
+<p>3.方法调用中谁调用this指向谁</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">封装：var o &#x3D; &#123;</span><br><span class="line">		sayHi:function()&#123;</span><br><span class="line">			console.log(this); &#x2F;&#x2F;this指向o这个对象</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line">	o.sayHi();</span><br><span class="line">点击事件：btn.onclick &#x3D; function()&#123;</span><br><span class="line">			console.log(this); &#x2F;&#x2F;this指向btn</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>2.返回事件类型：e.type</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function fn(e)&#123;</span><br><span class="line">	console.log(e.type);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.构造函数中this指向构造函数实例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function Fun()&#123;</span><br><span class="line">		console.log(this);&#x2F;&#x2F;this指向下面的fun实例对象</span><br><span class="line">&#125;</span><br><span class="line">var fun &#x3D; new Fun(0); &#x2F;&#x2F;Fun()指向fun</span><br></pre></td></tr></table></figure>
 
-<p>3.阻止默认行为（事件）：让链接不跳转或让提交按钮不提交</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; document.querySelector(&#39;a&#39;);</span><br><span class="line">a.addEventListener(&#39;click&#39;, function(e)&#123;</span><br><span class="line">	e.preventDefault();  &#x2F;&#x2F;dom写法</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>4.传统方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a.onclick &#x3D; function(e)&#123;</span><br><span class="line">	&#x2F;&#x2F;e.preventDefault(); 方法</span><br><span class="line">	&#x2F;&#x2F;ie678</span><br><span class="line">	e.returnValue &#x3D; false; 属性</span><br><span class="line">	&#x2F;&#x2F; 全部版本都可以 只限于传统的注册事件方式 return下面的不执行</span><br><span class="line">	return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>5.阻止事件冒泡：dom推荐标准 stopPropagation()</p>
-<p>​                              e.cancelBubble = true; //非标准</p>
-<p>6.事件委托：给父节点添加侦听器，利用事件影响每个子节点</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var ul &#x3D; document.querySelector(&#39;ul&#39;);</span><br><span class="line">ul.add.....</span><br></pre></td></tr></table></figure>
-
-<p>7.鼠标事件：禁止右键菜单：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">document.addEventListener(&#39;contextmenu&#39;, function(e)&#123;</span><br><span class="line">	e.preventDefault();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>禁止选中文字：selectstart</p>
-<h3 id="e-target-和this-区别"><a href="#e-target-和this-区别" class="headerlink" title="e.target 和this 区别"></a>e.target 和this 区别</h3><p>1.e.target点击对象谁，就返回点击的对象；</p>
-<p>2.this 哪个元素绑定了这个点击事件，就返回谁</p>
-<h3 id="鼠标事件对象-MouseEvent"><a href="#鼠标事件对象-MouseEvent" class="headerlink" title="鼠标事件对象 MouseEvent"></a>鼠标事件对象 MouseEvent</h3><p>1.client：鼠标在可视区的x,y坐标 e.clientX/Y</p>
-<p>2.pageX\Y在页面文档的x,y坐标</p>
-<p>3.screenX\Y在电脑屏幕的x,y坐标</p>
-<h3 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h3><p>![键盘事件](F:\wc\html5\code\exercise\js2\ex img\键盘事件.png)</p>
-<p>键盘事件之keyCode属性 返回ASCII码值</p>
-<p>keydown \ keyup 不区分大小写 识别功能键</p>
-<p>keypress 区分大小写</p>
+<h4 id="js执行机制：单线程分为同步和异步"><a href="#js执行机制：单线程分为同步和异步" class="headerlink" title="js执行机制：单线程分为同步和异步"></a>js执行机制：单线程分为同步和异步</h4><p>1.同步任务：在主线程上执行，形成一个执行栈</p>
+<p>2.异步任务：js的异步是通过回调函数实现的</p>
+<p>2.1异步有三种：1）普通事件click、resize 2)资源加载load、error 3）定时器setInterval、setTimeout</p>
+<p>2.2回调函数加到任务队列</p>
+<p>![js执行机制](F:\wc\html5\code\exercise\js2\ex img\js执行机制.png)</p>
+<h4 id="三种对象"><a href="#三种对象" class="headerlink" title="三种对象"></a>三种对象</h4><p>1.location 对象</p>
+<p>​    1）location.herf: 获取或设置整个URL</p>
+<p>​    统一资源定位符 (Uniform Resource Locator, URL) 是互联网上标准资源的地址。互联网上的每个文件    都有一个唯一的 URL，它包含的信息指出文件的位置以及浏览器应该怎么处理它。</p>
+<p>​    2）location.search：返回参数</p>
+<p>2.location 对象的方法</p>
+<p>​    1）location.assignl()：跟href一样，可以跳转页面 页面后退</p>
+<p>​    2）location.replace()：替换当前页面，因为不记录历史，不能后退</p>
+<p>​    3）location.reload()：刷新</p>
+<p>3.navigator对象</p>
+<p>属性有：userAgent,客户机——服务器——得到user-agent头部的值，可以判断哪种客户机PC or 移动</p>
+<p>4.history对象方法</p>
+<p>​    history.back()：后退功能</p>
+<p>​    history.forward()：前进功能</p>
+<p>​    history.go(参数)：前进为1；后退为-1</p>
 
       
 
@@ -301,7 +298,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/17/js%E4%B9%8B%E9%AB%98%E7%BA%A7%E4%BA%8B%E4%BB%B6/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/19/js%E4%B9%8BBOM/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -315,18 +312,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/09/19/js%E4%B9%8BBOM/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          js之BOM
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/09/15/js%E4%B9%8B%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js之基础函数</div>
+    <a href="/2020/09/17/js%E4%B9%8B%E9%AB%98%E7%BA%A7%E4%BA%8B%E4%BB%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js之高级事件</div>
       <i class="icon-circle-right"></i>
     </a>
   
