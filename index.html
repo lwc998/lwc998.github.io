@@ -152,6 +152,127 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js之动画" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/19/js%E4%B9%8B%E5%8A%A8%E7%94%BB/">js之动画</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/19/js%E4%B9%8B%E5%8A%A8%E7%94%BB/" class="archive-article-date">
+  	<time datetime="2020-09-19T11:58:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="三大系列"><a href="#三大系列" class="headerlink" title="三大系列"></a>三大系列</h3><p>1.元素偏移量offset系列属性</p>
+<p>​    1）element.offsetParent 返回作为该元素带有定位的父级元素，没有定位返回body（区别于                                            element.parentNode 返回亲爸爸）</p>
+<p>​    2）element.offsetTop 返回相对带有定位父元素上方的偏移量</p>
+<p>​    3）element.offsetLeft 返回相对带有定位父元素左边框的偏移量</p>
+<p>​    4）element.offsetWidth 返回盒子宽度    无单位    包括padding和border</p>
+<p>​    5）element.Height 返回盒子高度    无单位</p>
+<p>2.client系列</p>
+<p>​    1）element.clientTop    上边框的大小</p>
+<p>​    2）element.clientLeft    左边框的大小</p>
+<p>​    3）element.clientWidth    元素的宽包括paddding、内容区的高度、不包括边框、不带单位</p>
+<p>​    4）element.clientHeight    元素的高包括padding、内容区的高度</p>
+<p>3.立即执行函数    flexible.js源码分析（淘宝）</p>
+<p>​    1）不需要调用，立马能够自己执行的函数：(function(){}())、(function(){})()</p>
+<p>​    2）最大的作用：独立创建了一个作用域，都是局部变量</p>
+<p>4.(window).pageshow事件</p>
+<p>​    三种情况刷新触发load事件：1）a标签 2）F5或刷新按钮 3）前进后退；特殊：火狐有往返缓存，用         load不行，得改用pageshow</p>
+<p>5.resize事件：页面大小发生变化 </p>
+<p>6.元素scroll系列属性</p>
+<p>1）scrollHeight 内容高度，不含边框</p>
+<p>​      scrollWidth 实际宽度，不含边框</p>
+<p>​      scrollTop 离可视区上方里的距离（被卷去上侧的距离）</p>
+<p>​      scrollLeft 离可视区左侧里的距离（被卷去左侧的距离）</p>
+<p>2）scroll事件 页面滚动</p>
+<p>3）页面被卷去的头部，可以通过window.pageYOffset获得</p>
+<p>4）对比：元素被卷去的头部，可以通过element.scrollTop获得</p>
+<h4 id="三大系列总结"><a href="#三大系列总结" class="headerlink" title="三大系列总结"></a>三大系列总结</h4><p>1.区别：</p>
+<p>element.offsetWidth 返回padding、边框、内容区的宽度</p>
+<p>element.clientWidth 返回padding、内容区的宽度、不含边框</p>
+<p>element.scrollWidth 返回自身实际的宽度、不含边框</p>
+<p>2.用法：</p>
+<p>​    1）offset系列：获取元素位置</p>
+<p>​    2）client系列：获取元素大小</p>
+<p>​    3）scroll系列：获取滚动的距离</p>
+<p>​    4）页面滚动距离通过window.pageXOffset</p>
+<h4 id="插-鼠标事件"><a href="#插-鼠标事件" class="headerlink" title="插 鼠标事件"></a>插 鼠标事件</h4><p>1.mouseenter和mouseover的区别</p>
+<p>两者类似，区别于：mouseover鼠标经过自身盒子触发，经子盒子也触发；mouseenter只会经过自身盒子触发</p>
+<p>2.原因：mouseenter不会冒泡、mouseleave也不会</p>
+<h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3><p>1.动画原理：通过定时器setInterval()不断移动盒子的位置</p>
+<p>2.动画函数简单封装：传两个参数：动画对象obj、移动到的距离target</p>
+<p>3.动画函数给不同元素记录不同定时器</p>
+<p>​    核心：js一门动态语言，方便给当前对象添加属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        div &#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">            left: 0;</span><br><span class="line">            height: 200px;</span><br><span class="line">            width: 200px;</span><br><span class="line">            background-color: pink;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        span &#123;</span><br><span class="line">            display: block;</span><br><span class="line">            position: absolute;</span><br><span class="line">            left: 0;</span><br><span class="line">            top:300px;</span><br><span class="line">            width: 100px;</span><br><span class="line">            height: 100px;</span><br><span class="line">            background-color: burlywood;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button&gt;点击夏雨荷才走&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;div&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;span&gt;夏雨荷&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F; 动画函数封装</span><br><span class="line">        &#x2F;&#x2F; var obj &#x3D; &#123;&#125;;</span><br><span class="line">        &#x2F;&#x2F; obj.name &#x3D; &#39;andy&#39;</span><br><span class="line">        &#x2F;&#x2F; 给不同的元素记录不同的定时器</span><br><span class="line">        function animate(obj, target)&#123;</span><br><span class="line">            &#x2F;&#x2F;不断按击按钮，元素的速度会越来越快，因为开启了太多的定时器</span><br><span class="line">            &#x2F;&#x2F;只设置一个定时器</span><br><span class="line">            &#x2F;&#x2F;解决方案：清除以前的定时器，留下当前一个定时器</span><br><span class="line">            clearInterval(obj.timer)</span><br><span class="line">            obj.timer &#x3D; setInterval(function () &#123;</span><br><span class="line">            if(obj.offsetLeft &gt;&#x3D; target)&#123;</span><br><span class="line">                &#x2F;&#x2F;停止动画的本质是清除定时器 </span><br><span class="line">                clearsetInterval(obj.timer);</span><br><span class="line">            &#125;</span><br><span class="line">            obj.style.left &#x3D; obj.offsetLeft + 5 + &#39;px&#39;;</span><br><span class="line">        &#125;, 30);</span><br><span class="line">        &#125;</span><br><span class="line">        var div &#x3D; document.querySelector(&#39;div&#39;);</span><br><span class="line">        var span &#x3D; document.querySelector(&#39;span&#39;);</span><br><span class="line">        var button &#x3D; document.querySelector(&#39;button&#39;);</span><br><span class="line">        &#x2F;&#x2F;调用函数</span><br><span class="line">        animate(div, 300); </span><br><span class="line">        button.addEventListener(&#39;click&#39;, function()&#123;</span><br><span class="line">            animate(span, 400);</span><br><span class="line">        &#125;)</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>4.缓动效果原理：让元素运动速度有所变化、慢慢停下来</p>
+<p>​    1）核心：（目标值-现在位置）/10</p>
+<p>​    2)停止：当前盒子位置=目标位置就停止</p>
+<p>5.动画函数多个目标值之间移动</p>
+<p>​    1）判断步长的正负</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var step &#x3D; (target - obj.offsetLeft) &#x2F; 10;</span><br><span class="line">step &#x3D; step &gt; 0 ? Math.ceil(step) : Math.floor(step)</span><br></pre></td></tr></table></figure>
+
+<p>6.动画函数添加回调函数</p>
+<p>​    1）回调函数原理：函数可以作为一个参数，将函数作为参数传到另一个函数里，当那个函数执行完之          后，再执行传进去的函数，这过程回调</p>
+<p>​    2）回调函数写在定时器结束的地方</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if (obj.offsetLeft &#x3D;&#x3D; target) &#123;</span><br><span class="line">                    clearInterval(obj.timer);</span><br><span class="line">                    &#x2F;&#x2F;回调函数写到定时器结束的位置</span><br><span class="line">                    if (callback) &#123;</span><br><span class="line">                        callback();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="轮播图自动播放功能"><a href="#轮播图自动播放功能" class="headerlink" title="轮播图自动播放功能"></a>轮播图自动播放功能</h4><p>1）定时器 2）类似点击右侧按钮 3）手动调用右侧按钮事件：arrow_r.click()即元素.click()元素被点击</p>
+<h4 id="返回顶部功能"><a href="#返回顶部功能" class="headerlink" title="返回顶部功能"></a>返回顶部功能</h4><p>1.window.scroll(x, y); 不带单位</p>
+<p>2.用封装函数，把所有的left相关的值改为跟页面垂直滚动的距离；</p>
+<p>3.页面滚动了多少用 window.pageYOffset</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/19/js%E4%B9%8B%E5%8A%A8%E7%94%BB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-js之BOM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1040,81 +1161,10 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/01/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/01/hello-world/" class="archive-article-date">
-  	<time datetime="2020-09-01T11:55:03.779Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/01/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
