@@ -152,6 +152,106 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jQuery之第二天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/">jQuery之第二天</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/" class="archive-article-date">
+  	<time datetime="2020-09-22T02:07:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery属性操作"><a href="#jQuery属性操作" class="headerlink" title="jQuery属性操作"></a>jQuery属性操作</h3><p>1.设置或获取元素固有属性 prop()</p>
+<p>​    1)设置属性语法：prop(“属性名”)</p>
+<p>​    2)设置属性语法：prop(“属性名”,”值”)</p>
+<p>2.设置或获取元素自定义属性值 attr()</p>
+<p>​    1）获取：attr(“属性名”) //类似原生getAttribute()</p>
+<p>​    2）设置：attr(“属性名”，“值”)  //类似原生setAttribute()</p>
+<p>​    该方法也可获取H5自定义属性data-</p>
+<p>​    3）数据缓存data():存放在元素内存里</p>
+<p>​        获取H5自定义属性data-index，括号里不用加data-，返回数字型</p>
+<p>3.:check选择器：查找表单被选中的个数</p>
+<p>​    1）属性：checked  true或false  选中表单复选框与否</p>
+<h4 id="jQuery内容文本值"><a href="#jQuery内容文本值" class="headerlink" title="jQuery内容文本值"></a>jQuery内容文本值</h4><p>1.普通元素内容：相当于原生innerHTML</p>
+<p>​    1）html() 获取元素内容</p>
+<p>​    2）html() 设置元素内容</p>
+<p>2.文本内容：相当于innerText()</p>
+<p>​    1)text()、text(“内容”)</p>
+<p>3.获取设置表单值：val()、val(“内容”)</p>
+<p>+1）parents(‘选择器’)：可以返回指定祖先元素</p>
+<p>  2）保留两位小数：toFixed(2)方法</p>
+<h4 id="jQuery元素操作"><a href="#jQuery元素操作" class="headerlink" title="jQuery元素操作"></a>jQuery元素操作</h4><p>1.each()方法遍历元素：$(“div”).each(function(索引号i, domEle DOM元素对象))—&gt;jQ对象$(domEle)</p>
+<p>2.$each(obj, function(i, ele){})</p>
+<p>​    1）可遍历任何对象，主要用于处理数据，比如数组，对象</p>
+<p>​    2）i是每个元素索引号，ele遍历内容</p>
+<p>3.创建元素：$(“<li></li>“)</p>
+<p>4.添加元素：</p>
+<p>​    1）内部添加：$(“ul”).append(li) 添加在后面</p>
+<p>​                             $(“ul”).prepend(li) 添加在前面</p>
+<p>​        内部添加是父子关系</p>
+<p>​    2）外部添加：element.after(“内容”) 添加在后面</p>
+<p>​                             element.before(“内容”) 添加在前面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var div &#x3D; $(&quot;&lt;div&gt;我是后妈生的&lt;&#x2F;div&gt;&quot;);</span><br><span class="line">$(&quot;.test&quot;).after(div);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>5.删除元素：</p>
+<p>​    1）element.remove() //元素本身</p>
+<p>​    2）element.empty() //元素里面的子节点</p>
+<p>​    3）element.html(“”) //元素里面的子节点</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jQuery之第一天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1125,71 +1225,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/09/03/js%E4%B9%8B%E6%97%85/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/01/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">第一篇博客</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/01/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2020-09-01T12:11:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;form action&#x3D;&quot;&quot;method&#x3D;&quot;post&quot;&gt;</span><br><span class="line">        &lt;b&gt;&lt;h2 align&#x3D;&quot;left&quot;&gt;证券调查实例&lt;&#x2F;h2&gt;&lt;&#x2F;b&gt;</span><br><span class="line">        &lt;p&gt;&lt;b&gt;投资经验&lt;&#x2F;b&gt;&lt;&#x2F;p&gt;</span><br><span class="line">        &lt;p&gt;&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;result_radiobutton-3&quot; value&#x3D;&quot;radio-0&quot;&gt;&lt;&#x2F;p&gt;</span><br><span class="line">        &lt;p&gt;&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;r1&quot; checked&gt;新手</span><br><span class="line">        &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;r1&quot;&gt;中级</span><br><span class="line">        &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;r1&quot;&gt;专家&lt;&#x2F;p&gt;</span><br><span class="line">        &lt;p&gt;&lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;c1&quot;&gt;股票</span><br><span class="line">        &lt;p&gt;&lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;c1&quot;&gt;股票</span><br><span class="line">        &lt;p&gt;&lt;input type&#x3D;&quot;checkbox&quot; name&#x3D;&quot;c1&quot;&gt;股票&lt;&#x2F;p&gt;</span><br><span class="line">        &lt;p&gt;今年选择什么证券？&lt;&#x2F;p&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;text&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;br&gt;&lt;br&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;submit&quot; name&#x3D;&quot;s&quot; value&#x3D;&quot;提交&quot;&gt;</span><br><span class="line">        &lt;input type&#x3D;&quot;reset&quot; name&#x3D;&quot;r&quot; value&#x3D;&quot;重置&quot;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-
-<p><img src="F:\wc\w\w的照片\360wallpaper.jpg"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/01/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
         </p>
       
 
