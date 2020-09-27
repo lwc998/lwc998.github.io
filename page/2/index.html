@@ -152,6 +152,187 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js第五天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/07/js%E7%AC%AC%E4%BA%94%E5%A4%A9/">js第五天</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/07/js%E7%AC%AC%E4%BA%94%E5%A4%A9/" class="archive-article-date">
+  	<time datetime="2020-09-07T12:48:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ol>
+<li><p>浮点数：不能直接相加或直接相比较</p>
+</li>
+<li><p>前置/后置自增：++num / num++ 单独使用时都加1</p>
+</li>
+<li><p>逻辑运算：&amp;&amp;与  ||非  ！取反；</p>
+<p>1）与短路运算：123&amp;&amp;456  前面真返回2、前面假返回1；</p>
+<p>2）或短路运算：123&amp;&amp;456  前面真返回1、前面假返回2； </p>
+<p><img src="C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20200907205910657.png"></p>
+</li>
+<li><p>三元表达式：条件表达式? 表达式1：表达式2   （T返回1 F返回2）</p>
+</li>
+<li><p>switch<img src="C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20200907205948649.png"></p>
+</li>
+<li><p>for(初始化变量；条件表达式；操作表达式){循环体}</p>
+</li>
+<li><p>偶数和变量even、奇数和变量odd</p>
+</li>
+<li><p>标识符命名规范：变量、函数的命名有意义；变量用名词、函数用动词</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>1.var arr = new Array(2/表示长度)；</p>
+<p>   创建空数组：var arr = []; 数组名.[索引号]；数组长度：数组名.length=arr.length</p>
+<p>2.新增数组：1）修改length  arr.length = 5</p>
+<p>​                       2）修改索引 arr[]</p>
+<p>3.判断是否为数组：arr instanceof Array / Array.isArray(arr)</p>
+<p>4.添加：1）push() 加在最后面 :arr.push() 、返回结果是新数组长度</p>
+<p>​               2）arr.unshift()：加在最前面</p>
+<p>​               3）arr.pop()：删除最后一个、返回删除的数组</p>
+<p>​               4）arr.shift()：添加在最前面、返回最前面一个</p>
+<p>5.翻转：arr.reverse()、排序：arr.sort()</p>
+<p>6.返回索引号：indexOf(数组元素) 从前到后 没有返回-1</p>
+<p>lastindexOf()：从后到前</p>
+</li>
+</ol>
+<p>​       7.数组转换成字符串：arr.toString();可加分隔符：join(分隔符)</p>
+<p>​       8.连接：cooncat()：两个或多个 返回新的数组</p>
+<p>​       9.截取：slice(begin, end)</p>
+<p>​       10.删除：splice(第几个开始，删除个数，(替换元素))：返回删除的数组</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/07/js%E7%AC%AC%E4%BA%94%E5%A4%A9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js之旅" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/03/js%E4%B9%8B%E6%97%85/">js之旅</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/03/js%E4%B9%8B%E6%97%85/" class="archive-article-date">
+  	<time datetime="2020-09-03T12:41:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="first-one"><a href="#first-one" class="headerlink" title="### first one"></a>### first one</h3><p>1）JS组成：DOM:文档对象模型</p>
+<pre><code>           BOM：浏览器对象模型（操作窗口）</code></pre>
+<p>2）JS的3种书写：行内、内嵌和外部</p>
+<p>3）常用的函数：alert( ): 警示框、console.log( ): 控制台打印输出信息、prompt(): 输入框</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var myname &#x3D; &#39;旗木卡卡西&#39;;</span><br><span class="line">    var adress &#x3D; &#39;木叶村&#39;;</span><br><span class="line">    var age &#x3D; 18;</span><br><span class="line">    var email &#x3D; &#39;kakaxi@qq.com&#39;;</span><br><span class="line">    var gz &#x3D; 2000;</span><br><span class="line">    console.log(myname);</span><br><span class="line">    console.log(adress);</span><br><span class="line">    console.log(age);</span><br><span class="line">    console.log(email);</span><br><span class="line">    console.log(gz);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>4）变量：声明、赋值、初始化（数据类型运行时才知道；动态语言是可变的）</p>
+<p>​     数字型：八进制——0零开头、十进制——0x开头</p>
+<p>5）最大值：Number_MAX_VALUE、最小值：Number_MIN_VALUE</p>
+<p>​    Infinity:无穷大、-Infinity:无穷小</p>
+<p>6）NaN:not a number、判断是否为非数字：isNuN</p>
+<p>7）检测字符串的长度：console.log(str.length)</p>
+<p>8）布尔型：flag = ture 1/ false 0</p>
+<p>9）undefind + 数字 = NaN、null +数字 = 数字</p>
+<p>10）类型转换：数字—&gt;字符串：1）num/变量.toString( )；2）String(变量)；3）num+””</p>
+<p>11）其他类型转换数字 1）parseIn(变量)：字符型—&gt;整数</p>
+<p>​                                        2）parseFloat(变量)：字符型—&gt;浮点型</p>
+<p>​                                        3）Number(变量)</p>
+<p>​     </p>
+<p>​            </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/03/js%E4%B9%8B%E6%97%85/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-第一篇博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

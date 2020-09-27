@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/9 | Hexo</title>
+  <title>jQuery之第三天 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/09/index.html">
+  <meta name="description" content="jQuery事件1.jQuery事件注册 ​    1）单个事件注册：$().cilck(function(){}) ​    2）事件处理on()绑定事件 1234&#x2F;&#x2F;on()方法在匹配元素上绑定了一个或多个事件的事件处理函数element.on(event事件类型 多个空格隔开, [selector]子元素选择器 事件委托, fn侦听函数)&#x2F;&#x2F;1.eve">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery之第三天">
+<meta property="og:url" content="http://yoursite.com/2020/09/23/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%A4%A9/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="jQuery事件1.jQuery事件注册 ​    1）单个事件注册：$().cilck(function(){}) ​    2）事件处理on()绑定事件 1234&#x2F;&#x2F;on()方法在匹配元素上绑定了一个或多个事件的事件处理函数element.on(event事件类型 多个空格隔开, [selector]子元素选择器 事件委托, fn侦听函数)&#x2F;&#x2F;1.eve">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-23T04:18:02.000Z">
+<meta property="article:modified_time" content="2020-09-23T07:07:05.416Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,295 +154,210 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-jQuery之第三天" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/26/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%B8%80/" class="archive-article-date">
-  	<time datetime="2020-09-26T12:59:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/26/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%B8%80/">js高级之一</a>
+    <h1 class="article-title" itemprop="name">
+      jQuery之第三天
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/23/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%A4%A9/" class="archive-article-date">
+        
+        <a href="/2020/09/23/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%A4%A9/" class="archive-article-date">
   	<time datetime="2020-09-23T04:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-23</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/23/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%A4%A9/">jQuery之第三天</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery事件"><a href="#jQuery事件" class="headerlink" title="jQuery事件"></a>jQuery事件</h3><p>1.jQuery事件注册</p>
+<p>​    1）单个事件注册：$().cilck(function(){})</p>
+<p>​    2）事件处理on()绑定事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;on()方法在匹配元素上绑定了一个或多个事件的事件处理函数</span><br><span class="line">element.on(event事件类型 多个空格隔开, [selector]子元素选择器 事件委托, fn侦听函数)</span><br><span class="line">&#x2F;&#x2F;1.event可用对象形式：on(&#123;click:function()&#123;&#125;,逗号隔开mouseenter:function()&#123;&#125;,...&#125;)</span><br><span class="line">&#x2F;&#x2F;2.同一函数也可用on(&quot;mouseenter mouseleave&quot;, function()&#123;&#125;)</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>2.事件处理off()解绑事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">off()方法可移除on()方法添加事件</span><br><span class="line">$(&quot;p&quot;).off; &#x2F;&#x2F;解除元素所有的事件</span><br><span class="line">$(&quot;p&quot;).off(&quot;click&quot;); &#x2F;&#x2F;解除p元素的点击事件</span><br><span class="line">$(&quot;ul&quot;).off(&quot;click&quot;, &quot;li&quot;); &#x2F;&#x2F;解绑事件委托</span><br></pre></td></tr></table></figure>
 
+<p>3.事件处理one()只触发事件一次，与on()用法相同</p>
+<p>4.自动触发事件</p>
+<p>​    1）元素.事件()：$(“div”).click(); click事件需另外绑定，会触发元素的默认行为</p>
+<p>​    2）元素.trigger(“事件”)； $(“div”).trigger(“click”) 会触发元素的默认行为例如表单事件获得光标</p>
+<p>​    3）元素.triggerHandler(“事件”); 不会触发元素的默认行为</p>
+<p>5.jQuery事件对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element.on(events,[selector], function(event)&#123;&#125;)</span><br><span class="line">阻止默认行为：event.preventDefaule() 或者return false</span><br><span class="line">阻止冒泡：event.stopPropagation()</span><br></pre></td></tr></table></figure>
+
+<p>6.jQuery对象拷贝：$extend()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语法：$extend([deep], target, object1,[objectN])</span><br></pre></td></tr></table></figure>
+
+<p>​    1)deep:设为true为深拷贝，默认false为浅拷贝，一般都会覆盖</p>
+<p>​    2）浅拷贝把原来对象里面的复杂数据类型地址拷贝给目标对象</p>
+<p>​    3）深拷贝把原来里面的数据完全复制一份给目标对象，如果有不冲突的属性，合并到一起</p>
+<p>7.多库共存</p>
+<p>​    1）如果$符号冲突，使用jQuery</p>
+<p>​    2）让jQuery释放对$控制权，自己定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var X &#x3D; jQuery.noConflict();</span><br></pre></td></tr></table></figure>
+
+<p>8.jQuery插件</p>
+<p>![jQuery插件](F:\wc\html5\code\exercise\js2\ex img\jQuery插件.png)</p>
+<p>![jQuery插件演示](F:\wc\html5\code\exercise\js2\ex img\jQuery插件演示.png)</p>
+<p>9.案例：todolist</p>
+<p>​    1）本地存储格式：var todolist = [{title: “XXX”}, done: false]</p>
+<p>​    2）本地存储里面只能存储字符串的数据格式，对象—&gt;字符串：JSON.stringify()</p>
+<p>​    3）获取本地存储数据，把字符串—&gt;对象：JSON.parse()</p>
+<p>​    4）读取本地存储的数据：localStorage.getItem(“来源”, 转为对象)</p>
+<p>​    5）存储数据到本地存储：localStorage.setItem(“来源”, 转为字符串)</p>
+<p>10.jQuery尺寸</p>
+<p>![jQuery尺寸](F:\wc\html5\code\exercise\js2\ex img\jQuery尺寸.png)</p>
+<p>11.jQuery位置</p>
+<p>​    1）offset(): 设置或获取元素偏移</p>
+<p>​        1.1 offset()方法设置或返回被选元素相对文档的偏移坐标，跟父级没有关系</p>
+<p>​        1.2 有两个属性offset().top/left：距离文档的偏移</p>
+<p>​        1.3可以设置元素偏移：offset({top: 10, left: 30}) </p>
+<p>​    2)position:获取距离带有定位的父级位置（偏移），没有定位的父级以文档为准，不能设置偏移量</p>
+<p>​    3）scrollTop()/scrollLeft()：设置或获取元素被卷去的头部或左侧</p>
+<p>​        3.1页面滚动事件：$(window).scroll(function(){});</p>
+<p>​        3.2返回顶部：$(“body, html”).stop().animate({scrollTop: 0}); //animate对元素操作：body, html</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/23/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%A4%A9/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/" class="archive-article-date">
-  	<time datetime="2020-09-22T02:07:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-22</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/09/26/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%B8%80/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          js高级之一
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jQuery之第二天</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/">jQuery之第二天</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/21/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%80%E5%A4%A9/" class="archive-article-date">
-  	<time datetime="2020-09-21T13:02:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/21/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%80%E5%A4%A9/">jQuery之第一天</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/19/js%E4%B9%8B%E5%8A%A8%E7%94%BB/" class="archive-article-date">
-  	<time datetime="2020-09-19T11:58:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/19/js%E4%B9%8B%E5%8A%A8%E7%94%BB/">js之动画</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/19/js%E4%B9%8BBOM/" class="archive-article-date">
-  	<time datetime="2020-09-19T01:57:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/19/js%E4%B9%8BBOM/">js之BOM</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/17/js%E4%B9%8B%E9%AB%98%E7%BA%A7%E4%BA%8B%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2020-09-17T12:56:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/17/js%E4%B9%8B%E9%AB%98%E7%BA%A7%E4%BA%8B%E4%BB%B6/">js之高级事件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/15/js%E4%B9%8B%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-09-15T08:53:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/15/js%E4%B9%8B%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/">js之基础函数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/" class="archive-article-date">
-  	<time datetime="2020-09-10T13:51:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/">js之事件1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/08/js%E4%BA%8C%E4%B9%8B%E6%97%85/" class="archive-article-date">
-  	<time datetime="2020-09-08T12:54:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/08/js%E4%BA%8C%E4%B9%8B%E6%97%85/">js二之旅</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/09/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/09/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -462,8 +381,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

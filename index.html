@@ -152,6 +152,199 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js高级之一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/26/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%B8%80/">js高级之一</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/26/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%B8%80/" class="archive-article-date">
+  	<time datetime="2020-09-26T12:59:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="js面向对象"><a href="#js面向对象" class="headerlink" title="js面向对象"></a>js面向对象</h3><p>1.创建类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class name&#123;</span><br><span class="line">	&#x2F;&#x2F;class body</span><br><span class="line">&#125;</span><br><span class="line">创建实例：var xx &#x3D; new name();</span><br><span class="line">&#x2F;&#x2F;注意：类必须使用new实例化对象</span><br></pre></td></tr></table></figure>
+
+<p>2.类constructor构造函数：可以接受传递过来的参数，同时返回实例对象</p>
+<p>​    1）constructor函数：只要new生成实例时，就会自动调用这个函数，如果我们不写这个函数，类也会自            动生成这个函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F;1.创建类class 创建一个 明星类</span><br><span class="line">    class Star&#123;</span><br><span class="line">        &#x2F;&#x2F;类的共有属性放到constructor里面</span><br><span class="line">        constructor(uname, age)&#123;</span><br><span class="line">            this.uname &#x3D; uname;</span><br><span class="line">            this.age &#x3D; age;</span><br><span class="line">        &#125;</span><br><span class="line">        sing(song)&#123;</span><br><span class="line">            console.log(this.uname + song);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;2.利用类创建对象 new</span><br><span class="line">    var ldh &#x3D; new Star(&#39;刘德华&#39;, 18);</span><br><span class="line">    var zxy &#x3D; new Star(&#39;张学友&#39;, 28);</span><br><span class="line">    console.log(ldh);</span><br><span class="line">    console.log(zxy);</span><br><span class="line">    &#x2F;&#x2F;调用函数</span><br><span class="line">    ldh.sing(&#39;冰雨&#39;);</span><br><span class="line">    zxy.sing(&#39;情网&#39;);</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3.类中添加方法</p>
+<p>​    1）我们类里面所有的函数不需要写function;</p>
+<p>​    2）多个函数方法之间不需要添加逗号分隔；上面代码中的sing</p>
+<p>4.继承</p>
+<p>​    1）extends继承父类属性和方法</p>
+<p>​    2）super() //调用父类中的构造函数，也可以调用父类普通函数</p>
+<p>​    3）继承中，如果实例化子类输出一个方法，子类优先，没有再父类（就近原则）</p>
+<p>​    4）子类中super.函数名() 就是调用父类中的函数</p>
+<p>​    5）子类函数中使用super，必须放到this面前（先调用父类构造方法，再使用子类构造方法）</p>
+<p>注意：1.ES6中类没有变量提升，所以先定义类，才能通过类实例化对象</p>
+<p>​            2.类里面的共有的属性和方法一定要加this</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        class Father &#123;</span><br><span class="line">            constructor(x, y) &#123;</span><br><span class="line">                this.x &#x3D; x;</span><br><span class="line">                this.y &#x3D; y;</span><br><span class="line">            &#125;</span><br><span class="line">            sum() &#123;</span><br><span class="line">                console.log(this.x + this.y);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        class Son extends Father&#123;</span><br><span class="line">            constructor(x, y) &#123;</span><br><span class="line">                super(x, y); &#x2F;&#x2F;放在子类的this之前，先调用父类的构造方法</span><br><span class="line">                this.x &#x3D; x;</span><br><span class="line">                this.y &#x3D; y;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            structor() &#123;</span><br><span class="line">                console.log(this.x - this.y);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        var son &#x3D; new Son(12,3);</span><br><span class="line">        &#x2F;&#x2F; console.log(son);</span><br><span class="line">        son.structor();</span><br><span class="line">        son.sum();</span><br><span class="line"></span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/26/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%B8%80/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-jQuery之第三天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/23/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%A4%A9/">jQuery之第三天</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/23/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%A4%A9/" class="archive-article-date">
+  	<time datetime="2020-09-23T04:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="jQuery事件"><a href="#jQuery事件" class="headerlink" title="jQuery事件"></a>jQuery事件</h3><p>1.jQuery事件注册</p>
+<p>​    1）单个事件注册：$().cilck(function(){})</p>
+<p>​    2）事件处理on()绑定事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;on()方法在匹配元素上绑定了一个或多个事件的事件处理函数</span><br><span class="line">element.on(event事件类型 多个空格隔开, [selector]子元素选择器 事件委托, fn侦听函数)</span><br><span class="line">&#x2F;&#x2F;1.event可用对象形式：on(&#123;click:function()&#123;&#125;,逗号隔开mouseenter:function()&#123;&#125;,...&#125;)</span><br><span class="line">&#x2F;&#x2F;2.同一函数也可用on(&quot;mouseenter mouseleave&quot;, function()&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>2.事件处理off()解绑事件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">off()方法可移除on()方法添加事件</span><br><span class="line">$(&quot;p&quot;).off; &#x2F;&#x2F;解除元素所有的事件</span><br><span class="line">$(&quot;p&quot;).off(&quot;click&quot;); &#x2F;&#x2F;解除p元素的点击事件</span><br><span class="line">$(&quot;ul&quot;).off(&quot;click&quot;, &quot;li&quot;); &#x2F;&#x2F;解绑事件委托</span><br></pre></td></tr></table></figure>
+
+<p>3.事件处理one()只触发事件一次，与on()用法相同</p>
+<p>4.自动触发事件</p>
+<p>​    1）元素.事件()：$(“div”).click(); click事件需另外绑定，会触发元素的默认行为</p>
+<p>​    2）元素.trigger(“事件”)； $(“div”).trigger(“click”) 会触发元素的默认行为例如表单事件获得光标</p>
+<p>​    3）元素.triggerHandler(“事件”); 不会触发元素的默认行为</p>
+<p>5.jQuery事件对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">element.on(events,[selector], function(event)&#123;&#125;)</span><br><span class="line">阻止默认行为：event.preventDefaule() 或者return false</span><br><span class="line">阻止冒泡：event.stopPropagation()</span><br></pre></td></tr></table></figure>
+
+<p>6.jQuery对象拷贝：$extend()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">语法：$extend([deep], target, object1,[objectN])</span><br></pre></td></tr></table></figure>
+
+<p>​    1)deep:设为true为深拷贝，默认false为浅拷贝，一般都会覆盖</p>
+<p>​    2）浅拷贝把原来对象里面的复杂数据类型地址拷贝给目标对象</p>
+<p>​    3）深拷贝把原来里面的数据完全复制一份给目标对象，如果有不冲突的属性，合并到一起</p>
+<p>7.多库共存</p>
+<p>​    1）如果$符号冲突，使用jQuery</p>
+<p>​    2）让jQuery释放对$控制权，自己定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var X &#x3D; jQuery.noConflict();</span><br></pre></td></tr></table></figure>
+
+<p>8.jQuery插件</p>
+<p>![jQuery插件](F:\wc\html5\code\exercise\js2\ex img\jQuery插件.png)</p>
+<p>![jQuery插件演示](F:\wc\html5\code\exercise\js2\ex img\jQuery插件演示.png)</p>
+<p>9.案例：todolist</p>
+<p>​    1）本地存储格式：var todolist = [{title: “XXX”}, done: false]</p>
+<p>​    2）本地存储里面只能存储字符串的数据格式，对象—&gt;字符串：JSON.stringify()</p>
+<p>​    3）获取本地存储数据，把字符串—&gt;对象：JSON.parse()</p>
+<p>​    4）读取本地存储的数据：localStorage.getItem(“来源”, 转为对象)</p>
+<p>​    5）存储数据到本地存储：localStorage.setItem(“来源”, 转为字符串)</p>
+<p>10.jQuery尺寸</p>
+<p>![jQuery尺寸](F:\wc\html5\code\exercise\js2\ex img\jQuery尺寸.png)</p>
+<p>11.jQuery位置</p>
+<p>​    1）offset(): 设置或获取元素偏移</p>
+<p>​        1.1 offset()方法设置或返回被选元素相对文档的偏移坐标，跟父级没有关系</p>
+<p>​        1.2 有两个属性offset().top/left：距离文档的偏移</p>
+<p>​        1.3可以设置元素偏移：offset({top: 10, left: 30}) </p>
+<p>​    2)position:获取距离带有定位的父级位置（偏移），没有定位的父级以文档为准，不能设置偏移量</p>
+<p>​    3）scrollTop()/scrollLeft()：设置或获取元素被卷去的头部或左侧</p>
+<p>​        3.1页面滚动事件：$(window).scroll(function(){});</p>
+<p>​        3.2返回顶部：$(“body, html”).stop().animate({scrollTop: 0}); //animate对元素操作：body, html</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/23/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%A4%A9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jQuery之第二天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1044,187 +1237,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/09/08/js%E4%BA%8C%E4%B9%8B%E6%97%85/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js第五天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/07/js%E7%AC%AC%E4%BA%94%E5%A4%A9/">js第五天</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/07/js%E7%AC%AC%E4%BA%94%E5%A4%A9/" class="archive-article-date">
-  	<time datetime="2020-09-07T12:48:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><ol>
-<li><p>浮点数：不能直接相加或直接相比较</p>
-</li>
-<li><p>前置/后置自增：++num / num++ 单独使用时都加1</p>
-</li>
-<li><p>逻辑运算：&amp;&amp;与  ||非  ！取反；</p>
-<p>1）与短路运算：123&amp;&amp;456  前面真返回2、前面假返回1；</p>
-<p>2）或短路运算：123&amp;&amp;456  前面真返回1、前面假返回2； </p>
-<p><img src="C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20200907205910657.png"></p>
-</li>
-<li><p>三元表达式：条件表达式? 表达式1：表达式2   （T返回1 F返回2）</p>
-</li>
-<li><p>switch<img src="C:\Users\123\AppData\Roaming\Typora\typora-user-images\image-20200907205948649.png"></p>
-</li>
-<li><p>for(初始化变量；条件表达式；操作表达式){循环体}</p>
-</li>
-<li><p>偶数和变量even、奇数和变量odd</p>
-</li>
-<li><p>标识符命名规范：变量、函数的命名有意义；变量用名词、函数用动词</p>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>1.var arr = new Array(2/表示长度)；</p>
-<p>   创建空数组：var arr = []; 数组名.[索引号]；数组长度：数组名.length=arr.length</p>
-<p>2.新增数组：1）修改length  arr.length = 5</p>
-<p>​                       2）修改索引 arr[]</p>
-<p>3.判断是否为数组：arr instanceof Array / Array.isArray(arr)</p>
-<p>4.添加：1）push() 加在最后面 :arr.push() 、返回结果是新数组长度</p>
-<p>​               2）arr.unshift()：加在最前面</p>
-<p>​               3）arr.pop()：删除最后一个、返回删除的数组</p>
-<p>​               4）arr.shift()：添加在最前面、返回最前面一个</p>
-<p>5.翻转：arr.reverse()、排序：arr.sort()</p>
-<p>6.返回索引号：indexOf(数组元素) 从前到后 没有返回-1</p>
-<p>lastindexOf()：从后到前</p>
-</li>
-</ol>
-<p>​       7.数组转换成字符串：arr.toString();可加分隔符：join(分隔符)</p>
-<p>​       8.连接：cooncat()：两个或多个 返回新的数组</p>
-<p>​       9.截取：slice(begin, end)</p>
-<p>​       10.删除：splice(第几个开始，删除个数，(替换元素))：返回删除的数组</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/07/js%E7%AC%AC%E4%BA%94%E5%A4%A9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js之旅" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/03/js%E4%B9%8B%E6%97%85/">js之旅</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/03/js%E4%B9%8B%E6%97%85/" class="archive-article-date">
-  	<time datetime="2020-09-03T12:41:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="first-one"><a href="#first-one" class="headerlink" title="### first one"></a>### first one</h3><p>1）JS组成：DOM:文档对象模型</p>
-<pre><code>           BOM：浏览器对象模型（操作窗口）</code></pre>
-<p>2）JS的3种书写：行内、内嵌和外部</p>
-<p>3）常用的函数：alert( ): 警示框、console.log( ): 控制台打印输出信息、prompt(): 输入框</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var myname &#x3D; &#39;旗木卡卡西&#39;;</span><br><span class="line">    var adress &#x3D; &#39;木叶村&#39;;</span><br><span class="line">    var age &#x3D; 18;</span><br><span class="line">    var email &#x3D; &#39;kakaxi@qq.com&#39;;</span><br><span class="line">    var gz &#x3D; 2000;</span><br><span class="line">    console.log(myname);</span><br><span class="line">    console.log(adress);</span><br><span class="line">    console.log(age);</span><br><span class="line">    console.log(email);</span><br><span class="line">    console.log(gz);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>4）变量：声明、赋值、初始化（数据类型运行时才知道；动态语言是可变的）</p>
-<p>​     数字型：八进制——0零开头、十进制——0x开头</p>
-<p>5）最大值：Number_MAX_VALUE、最小值：Number_MIN_VALUE</p>
-<p>​    Infinity:无穷大、-Infinity:无穷小</p>
-<p>6）NaN:not a number、判断是否为非数字：isNuN</p>
-<p>7）检测字符串的长度：console.log(str.length)</p>
-<p>8）布尔型：flag = ture 1/ false 0</p>
-<p>9）undefind + 数字 = NaN、null +数字 = 数字</p>
-<p>10）类型转换：数字—&gt;字符串：1）num/变量.toString( )；2）String(变量)；3）num+””</p>
-<p>11）其他类型转换数字 1）parseIn(变量)：字符型—&gt;整数</p>
-<p>​                                        2）parseFloat(变量)：字符型—&gt;浮点型</p>
-<p>​                                        3）Number(变量)</p>
-<p>​     </p>
-<p>​            </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/03/js%E4%B9%8B%E6%97%85/">展开全文 >></a>
         </p>
       
 
