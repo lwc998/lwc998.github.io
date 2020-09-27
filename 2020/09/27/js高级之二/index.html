@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/9 | Hexo</title>
+  <title>js高级之二 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/09/index.html">
+  <meta name="description" content="构造函数和原型1.new在执行时会做四件事： ​    1）在内存创新的空对象；2）让this指向这个新的对象； ​    3）执行构造函数里的代码，给新对象添加属性和方法；4）返回新对象 2.成员 ​    1）实例成员：在构造函数内部创建的对象成员称为实例成员，(this)由实例化对象来访问 ​    2）静态成员：在构造函数本身上添加(Star.sex)的成员，只能由构造函数本身访问 123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js高级之二">
+<meta property="og:url" content="http://yoursite.com/2020/09/27/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%BA%8C/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="构造函数和原型1.new在执行时会做四件事： ​    1）在内存创新的空对象；2）让this指向这个新的对象； ​    3）执行构造函数里的代码，给新对象添加属性和方法；4）返回新对象 2.成员 ​    1）实例成员：在构造函数内部创建的对象成员称为实例成员，(this)由实例化对象来访问 ​    2）静态成员：在构造函数本身上添加(Star.sex)的成员，只能由构造函数本身访问 123">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-27T12:00:24.000Z">
+<meta property="article:modified_time" content="2020-09-27T13:24:36.218Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,295 +154,209 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-js高级之二" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      js高级之二
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/27/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%BA%8C/" class="archive-article-date">
+
+        
+        <a href="/2020/09/27/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%BA%8C/" class="archive-article-date">
   	<time datetime="2020-09-27T12:00:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-27</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/27/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%BA%8C/">js高级之二</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="构造函数和原型"><a href="#构造函数和原型" class="headerlink" title="构造函数和原型"></a>构造函数和原型</h3><p>1.new在执行时会做四件事：</p>
+<p>​    1）在内存创新的空对象；2）让this指向这个新的对象；</p>
+<p>​    3）执行构造函数里的代码，给新对象添加属性和方法；4）返回新对象</p>
+<p>2.成员</p>
+<p>​    1）实例成员：在构造函数内部创建的对象成员称为实例成员，(this)由实例化对象来访问</p>
+<p>​    2）静态成员：在构造函数本身上添加(Star.sex)的成员，只能由构造函数本身访问</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">        &#x2F;&#x2F; 构造函数中的属性和方法我们称为成员, 成员可以添加</span><br><span class="line">        function Star(uname, age) &#123;</span><br><span class="line">            this.uname &#x3D; uname;</span><br><span class="line">            this.age &#x3D; age;</span><br><span class="line">            this.sing &#x3D; function() &#123;</span><br><span class="line">                console.log(&#39;我会唱歌&#39;);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        var ldh &#x3D; new Star(&#39;刘德华&#39;, 18);</span><br><span class="line">        &#x2F;&#x2F; 1.实例成员就是构造函数内部通过this添加的成员 uname age sing 就是实例成员</span><br><span class="line">        &#x2F;&#x2F; 实例成员只能通过实例化的对象来访问</span><br><span class="line">        console.log(ldh.uname);</span><br><span class="line">        ldh.sing();</span><br><span class="line">        &#x2F;&#x2F; console.log(Star.uname); &#x2F;&#x2F; 不可以通过构造函数来访问实例成员</span><br><span class="line">        &#x2F;&#x2F; 2. 静态成员 在构造函数本身上添加的成员  sex 就是静态成员</span><br><span class="line">        Star.sex &#x3D; &#39;男&#39;;</span><br><span class="line">        &#x2F;&#x2F; 静态成员只能通过构造函数来访问</span><br><span class="line">        console.log(Star.sex);</span><br><span class="line">        console.log(ldh.sex); &#x2F;&#x2F; 不能通过对象来访问</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>3.原型prototype：一个对象；写在构造函数外；Star.prototype</p>
+<p>​    1）作用：可以共享的方法；</p>
+<p>​    2）一般情况下，我们的公共属性定义到构造函数里，公共的方法放到原型对象上</p>
+<p>4.对象原型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对象原型__proto__,对象都会有一个属性__proto__指向构造函数的prototype原型对象，(ldh)对象可以使用构造函数prototype原型对象(里面的this指向实例对象)的属性和方法</span><br></pre></td></tr></table></figure>
 
+<p>5.构造函数：constructor</p>
+<p>​    1）对象原型(proto)和构造函数(prototype)原型对象里面都有一个属性constructor属性</p>
+<p>​    2）利用constructor这个属性指回原来的构造函数（修改了原型对象prototype，即给原型对象赋值的是一        个对象，必须手动的利用constructor指回原来的构造函数）</p>
+<p>6.构造函数、实例、原型对象三者之间的关系</p>
+<p>![构造函数、实例、原型对象三者之间的关系](F:\wc\html5\code\ex img\构造函数、实例、原型对象三者之间的关系.png)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    function Star(uname, age)&#123;</span><br><span class="line">        this.uname &#x3D;  uname;</span><br><span class="line">        this.age &#x3D; age;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    Star.prototype&#x3D;&#123;</span><br><span class="line">        &#x2F;&#x2F;必须利用constructor指向原来的构造函数</span><br><span class="line">        constructor:Star,</span><br><span class="line">        sing:function()&#123;</span><br><span class="line">            console.log(&#39;我会唱歌&#39;);</span><br><span class="line">        &#125;,</span><br><span class="line">        dance:function()&#123;</span><br><span class="line">            console.log(&#39;我会跳舞&#39;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    var ldh &#x3D; new Star(&#39;刘德华&#39;, 18);</span><br><span class="line">    var zxy &#x3D; new Star(&#39;张学友&#39;, 18);</span><br><span class="line">    &#x2F;&#x2F; console.log(ldh);</span><br><span class="line">    &#x2F;&#x2F;如果被覆盖了(17行没有)就输出不了constructor</span><br><span class="line">    console.log(Star.prototype);</span><br><span class="line">    console.log(ldh.__proto__);</span><br><span class="line">    &#x2F;&#x2F; console.log(Star.prototype.constructor);</span><br><span class="line">    &#x2F;&#x2F; console.log(ldh.__proto__.constructor);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>7.原型链</p>
+<p>![原型链](F:\wc\html5\code\ex img\原型链.png)</p>
+<p>8.JavaScript的成员查找机制(规则)</p>
+<p>​    1）当访问一个对象的属性(包括方法)时，首先查找这个对象自身有没有该属性</p>
+<p>​    2）如果没有就查找它的原型(也就是proto指向的prototype原型对象)</p>
+<p>​    3）如果没有就查找原型对象的原型(Object的原型对象)</p>
+<p>​    4）以此类推一直找到Object为值(null)</p>
+<p>9.扩展内置对象方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    &#x2F;&#x2F;原型对象的应用 扩展内置对象</span><br><span class="line">    Array.prototype.sum &#x3D; function () &#123;</span><br><span class="line">        var sum &#x3D; 0;</span><br><span class="line">        for (var i &#x3D; 0; i &lt; this.length; i++) &#123;</span><br><span class="line">            sum +&#x3D; this[i]</span><br><span class="line">        &#125;</span><br><span class="line">        return sum;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;不能直接赋值下面</span><br><span class="line">    &#x2F;* Array.prototype &#x3D; &#123;</span><br><span class="line">        sum: function () &#123;</span><br><span class="line">            var sum &#x3D; 0;</span><br><span class="line">            for (var i &#x3D; 0; i &lt; this.length; i++) &#123;</span><br><span class="line">                sum +&#x3D; this[i]</span><br><span class="line">            &#125;</span><br><span class="line">            return sum;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; *&#x2F;</span><br><span class="line">    var arr &#x3D; [1, 2, 3]</span><br><span class="line">    var arr1 &#x3D; new Array(11, 22, 33);</span><br><span class="line">    console.log(Array.prototype);</span><br><span class="line">    console.log(arr1.sum());</span><br><span class="line">    console.log(arr.sum());</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>说明：ES6之前没有extends继承，可以通过构造函数+原型对象模拟实现继承称为组合继承</p>
+<p>1.call()：可调用这个函数，并且修改函数运行时的this指向</p>
+<p>​    1）借用父构造函数继承属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">fn.call(thisArg(this指向的对象),arg1,arg2...传参)</span><br><span class="line">function.fn(x, y)&#123;&#125;</span><br><span class="line">var o &#x3D; &#123;name &#x3D; &#39;andy&#39;&#125;;</span><br><span class="line">fn.call(o,1,2)</span><br><span class="line"></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        function Father(uname, age)&#123;</span><br><span class="line">            this.uname &#x3D; uname;</span><br><span class="line">            this.age &#x3D; age;</span><br><span class="line">        &#125;</span><br><span class="line">        function Son(uname, age, score)&#123;</span><br><span class="line">            &#x2F;&#x2F;this指向子构造函数的实例对象,继承父属性</span><br><span class="line">            Father.call(this, uname, age)</span><br><span class="line">            this.score &#x3D; score;</span><br><span class="line">        &#125;</span><br><span class="line">        var son &#x3D; new Son(&#39;刘德华&#39;, 18, 100);</span><br><span class="line">        console.log(son);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​    2）借用原型对象继承</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">    &lt;script&gt;</span><br><span class="line">        function Father(uname, age)&#123;</span><br><span class="line">            this.uname &#x3D; uname;</span><br><span class="line">            this.age &#x3D; age;</span><br><span class="line">        &#125;</span><br><span class="line">        Father.prototype.money &#x3D; function()&#123;</span><br><span class="line">            console.log(1000000);</span><br><span class="line">        &#125;</span><br><span class="line">        function Son(uname, age, score)&#123;</span><br><span class="line">            &#x2F;&#x2F;this指向子构造函数的实例对象</span><br><span class="line">            Father.call(this, uname, age)</span><br><span class="line">            this.score &#x3D; score;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F; Son.prototype &#x3D; Father.prototype; 这样直接赋值会有问题，如果修改了子原型对象，父原型对象也会一起改变</span><br><span class="line">        &#x2F;&#x2F;利用原型链将Son的原型对象指向Father的实例对象，实例对象再查找Father.prototype原型对象</span><br><span class="line">        Son.prototype &#x3D; new Father();</span><br><span class="line">        &#x2F;&#x2F;利用对象形式修改了原型对象，别忘了利用constructor重新指回原来的原构造函数</span><br><span class="line">        Son.prototype.constructor &#x3D; Son;</span><br><span class="line">        var son &#x3D; new Son(&#39;刘德华&#39;, 18, 100);</span><br><span class="line">        console.log(son);</span><br><span class="line">        console.log(Father.prototype);</span><br><span class="line">        console.log(Son.prototype.constructor);&#x2F;&#x2F;指回Son函数</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">    </span><br><span class="line">打印</span><br><span class="line">Son</span><br><span class="line">age: 18</span><br><span class="line">score: 100</span><br><span class="line">uname: &quot;刘德华&quot;</span><br><span class="line">__proto__: Father</span><br><span class="line"></span><br><span class="line">Object</span><br><span class="line">money: ƒ ()</span><br><span class="line">constructor: ƒ Father(uname, age)</span><br><span class="line">__proto__: Object</span><br><span class="line"></span><br><span class="line">ƒ Son(uname, age, score)&#123;</span><br><span class="line">            &#x2F;&#x2F;this指向子构造函数的实例对象</span><br><span class="line">            Father.call(this, uname, age)</span><br><span class="line">            this.score &#x3D; score;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ES5新增的方法"><a href="#ES5新增的方法" class="headerlink" title="ES5新增的方法"></a>ES5新增的方法</h3><p>1.forEach：迭代(遍历)数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.forEach(function(currentvalue当前的值, index, array)&#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>2.filter()方法创建一个新的数组，符合条件的所有元素，主要用于筛选数组，返回一个新的数组，返回一个新    的数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var newArr &#x3D; arr.filer(function(value, index, array)&#123;</span><br><span class="line">	return value &gt;&#x3D; 20;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>3.some()方法用于检测是否有满足条件的，返回布尔值true, false；如果找到第一个满足条件的元素，则终止循环，不在查找</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var flag &#x3D; arr.some(function(value, index, array)&#123;</span><br><span class="line">	return value &gt;&#x3D; 20;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(flag)</span><br></pre></td></tr></table></figure>
+
+<p>4.字符串方法</p>
+<p>​    1）time()方法去除字符串两侧空格，返回新的字符串</p>
+<p>5.对象方法：</p>
+<p>​    1）Objcet.keys(obj)：用于获取对象自身所有的属性，返回属性名组成的数组，效果类似for..in..</p>
+<p>​    2）Object.defineProperty(obj目标对象, prop修改的属性名, {})：定义新属性或修改原有属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#125;里面的参数：value:修改或加属性值</span><br><span class="line">			writable:false,不允许修改属性值</span><br><span class="line">			enumerable:false,能否被遍历，默认false不能</span><br><span class="line">			configurable:false,不允许删除或是否能再次修改特性</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/27/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%BA%8C/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/26/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%B8%80/" class="archive-article-date">
-  	<time datetime="2020-09-26T12:59:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/09/26/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%B8%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js高级之一</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/26/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%B8%80/">js高级之一</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/23/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%A4%A9/" class="archive-article-date">
-  	<time datetime="2020-09-23T04:18:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/23/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%A4%A9/">jQuery之第三天</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/" class="archive-article-date">
-  	<time datetime="2020-09-22T02:07:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/">jQuery之第二天</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/21/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%80%E5%A4%A9/" class="archive-article-date">
-  	<time datetime="2020-09-21T13:02:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/21/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%80%E5%A4%A9/">jQuery之第一天</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/19/js%E4%B9%8B%E5%8A%A8%E7%94%BB/" class="archive-article-date">
-  	<time datetime="2020-09-19T11:58:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/19/js%E4%B9%8B%E5%8A%A8%E7%94%BB/">js之动画</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/19/js%E4%B9%8BBOM/" class="archive-article-date">
-  	<time datetime="2020-09-19T01:57:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/19/js%E4%B9%8BBOM/">js之BOM</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/17/js%E4%B9%8B%E9%AB%98%E7%BA%A7%E4%BA%8B%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2020-09-17T12:56:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/17/js%E4%B9%8B%E9%AB%98%E7%BA%A7%E4%BA%8B%E4%BB%B6/">js之高级事件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/15/js%E4%B9%8B%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-09-15T08:53:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/15/js%E4%B9%8B%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0/">js之基础函数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/" class="archive-article-date">
-  	<time datetime="2020-09-10T13:51:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/10/js%E4%B9%8B%E4%BA%8B%E4%BB%B61/">js之事件1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/09/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/09/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -462,8 +380,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
