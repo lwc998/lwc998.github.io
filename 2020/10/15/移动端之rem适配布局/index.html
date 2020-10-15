@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,7 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Archive: 2020 - Hexo</title>
+  <title>移动端之rem适配布局 - Hexo</title>
   
 
   
@@ -65,7 +63,7 @@
 <body>
   
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -316,7 +314,7 @@
     <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -392,545 +390,215 @@
         
 
 <div class='l_main'>
-	
-		
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
     
     
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
     
-    <h2 class="article-title" >
-      <a href="/2020/10/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8Brem%E9%80%82%E9%85%8D%E5%B8%83%E5%B1%80/">
+      <h1 class="title">
         移动端之rem适配布局
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        rem适配布局1.rem单位
-​    1）em是相对于父元素的字体大小
-​    2）rem相对于html元素字体大小
-​    3）rem优点通过修改html里面字体大小来对页面中元素大小整体控制
-2.媒体查询
-1234567891011121314151617&lt;style&gt;    &#x2F;* 这句话的意思是: 在我们屏幕上  并且  最大的宽度是 800像素 设置我们想...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+      </h1>
+      <div class='new-meta-box'>
         
-        <time>2020-10-15</time>
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="">
+    <p>请设置文章作者</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：Oct 15, 2020</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="移动端之rem适配布局" data-path="/2020/10/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8Brem%E9%80%82%E9%85%8D%E5%B8%83%E5%B1%80/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  <h3 id="rem适配布局"><a href="#rem适配布局" class="headerlink" title="rem适配布局"></a>rem适配布局</h3><p>1.rem单位</p>
+<p>​    1）em是相对于父元素的字体大小</p>
+<p>​    2）rem相对于html元素字体大小</p>
+<p>​    3）rem优点通过修改html里面字体大小来对页面中元素大小整体控制</p>
+<p>2.媒体查询</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    &#x2F;* 这句话的意思是: 在我们屏幕上  并且  最大的宽度是 800像素 设置我们想要的样式 *&#x2F;</span><br><span class="line">    &#x2F;* max-width 小于等于800 *&#x2F;</span><br><span class="line">    &#x2F;* 媒体查询可以根据不同的屏幕尺寸在改变不同的样式 *&#x2F;</span><br><span class="line"></span><br><span class="line">    @media screen and (max-width: 800px) &#123;</span><br><span class="line">        body &#123;</span><br><span class="line">            background-color: pink;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @media screen and (max-width: 600px) &#123;</span><br><span class="line">        body &#123;</span><br><span class="line">            background-color: purple;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2020/10/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8Brem%E9%80%82%E9%85%8D%E5%B8%83%E5%B1%80/'>
-            Read More
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://yoursite.com/2020/10/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8Brem%E9%80%82%E9%85%8D%E5%B8%83%E5%B1%80/>http://yoursite.com/2020/10/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8Brem%E9%80%82%E9%85%8D%E5%B8%83%E5%B1%80/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-15T15:10:30+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Oct 15, 2020</p>
+  </a>
 </div>
 
-          </div>
         
       
         
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8Bflex%E5%B8%83%E5%B1%80/">
-        移动端之flex布局
-      </a>
-    </h2>
-  
-  <div class='md'>
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
       
-        flex布局1.原理：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/10/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8Brem%E9%80%82%E9%85%8D%E5%B8%83%E5%B1%80/&title=移动端之rem适配布局 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/10/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8Brem%E9%80%82%E9%85%8D%E5%B8%83%E5%B1%80/&title=移动端之rem适配布局 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/10/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8Brem%E9%80%82%E9%85%8D%E5%B8%83%E5%B1%80/&title=移动端之rem适配布局 - Hexo&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2020/10/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8Bflex%E5%B8%83%E5%B1%80/'>
+          <p class='title'>移动端之flex布局<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>flex布局1.原理：就是通过给父盒子添加flex属性，来控制子盒子的位置和排列方式
 2.父项常见的属性
 1）flex-direction设置主轴的方向（决定主轴与侧轴）
-​    1）属性值：row 默认从左到右
-​                         row-reverse 从右到左
-​                         column 从上到下
-​       ...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-15</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8Bflex%E5%B8%83%E5%B1%80/'>
-            Read More
-          </a>
-        </div>
+​    1）属性值：...</p>
+        </a>
       
     </div>
   
+</article>
 
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
 </div>
 
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/10/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%B5%81%E5%BC%8F%E5%B8%83%E5%B1%80/">
-        移动端之流式布局
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        移动端基础1.视口标签
+  </article>
 
 
-2.CSS盒子模型box-sizing
-1)CSS3: box-sizing: border-box(设置的width里面包括padding和border)
-2)传统：box-sizing: content-box
-注意：移动端全部用CSS3盒子模型；PC端要兼容用传统模型；不考虑兼容用CSS3
-3.特殊样式
 
 
-4.二倍精灵图做法：
-![二倍精灵图](F:\wc...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-10-15</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/10/15/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B9%8B%E6%B5%81%E5%BC%8F%E5%B8%83%E5%B1%80/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/09/29/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E5%9B%9B/">
-        js高级之四
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        正则表达式1.正则表达式是用于匹配字符串中字符组合的模式
-​    1）作用：匹配、替换、提取
-2.正则表达式在js中使用
-​    1）利用RegExp对象创建：var 变量名 = newRegExp(/表达式/)；
-​    2）字面量创建：var 变量名 = /表达式/；
-​    3）test()正则表达式，检测字符串是否符合，其参数是测试字符串
-1console.log(rg.te...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-09-29</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/09/29/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E5%9B%9B/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/09/27/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%B8%89/">
-        js高级之三
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        函数的定义和调用方式定义1.function fn(){}：自定义
-2.匿名函数：var fun = function(){};
-3.new Function(‘参数1’, ‘参数2’, ‘函数体’)
-4.所有的函数都是Function的实例（对象）
-5.函数也是对象
-调用方式语法/调用/this指向
-1.普通函数：function fn(){}; / fn(); fn.call() / w...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-09-27</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/09/27/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%B8%89/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/09/27/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%BA%8C/">
-        js高级之二
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        构造函数和原型1.new在执行时会做四件事：
-​    1）在内存创新的空对象；2）让this指向这个新的对象；
-​    3）执行构造函数里的代码，给新对象添加属性和方法；4）返回新对象
-2.成员
-​    1）实例成员：在构造函数内部创建的对象成员称为实例成员，(this)由实例化对象来访问
-​    2）静态成员：在构造函数本身上添加(Star.sex)的成员，只能由构造函数本身访问
-...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-09-27</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/09/27/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%BA%8C/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/09/26/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%B8%80/">
-        js高级之一
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        js面向对象1.创建类：
-12345class name&#123;	&#x2F;&#x2F;class body&#125;创建实例：var xx &#x3D; new name();&#x2F;&#x2F;注意：类必须使用new实例化对象
-
-2.类constructor构造函数：可以接受传递过来的参数，同时返回实例对象
-​    1）constructor函数：只要new生成实例时，就会...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-09-26</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/09/26/js%E9%AB%98%E7%BA%A7%E4%B9%8B%E4%B8%80/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/09/23/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%A4%A9/">
-        jQuery之第三天
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        jQuery事件1.jQuery事件注册
-​    1）单个事件注册：$().cilck(function(){})
-​    2）事件处理on()绑定事件
-1234&#x2F;&#x2F;on()方法在匹配元素上绑定了一个或多个事件的事件处理函数element.on(event事件类型 多个空格隔开, [selector]子元素选择器 事件委托, fn侦听函数)&#x2F;&#x2F;1....
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-09-23</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/09/23/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%A4%A9/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/">
-        jQuery之第二天
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        jQuery属性操作1.设置或获取元素固有属性 prop()
-​    1)设置属性语法：prop(“属性名”)
-​    2)设置属性语法：prop(“属性名”,”值”)
-2.设置或获取元素自定义属性值 attr()
-​    1）获取：attr(“属性名”) //类似原生getAttribute()
-​    2）设置：attr(“属性名”，“值”)  //类似原生setAttribut...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-09-22</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/09/21/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%80%E5%A4%A9/">
-        jQuery之第一天
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        jQuery入门1.jQuery的入口函数
-1234561）$(function()&#123;	...&#x2F;&#x2F;此处是页面DOM加载完成的入口&#125;)2）$(document).ready(function()&#123;	...&#x2F;&#x2F;此处是页面DOM加载完成的入口&#125;)
-
-2.$是jQuery的别称，同时也是jQuery的顶级对象
-3.DOM...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-09-21</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/09/21/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%80%E5%A4%A9/'>
-            Read More
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-      <br>
-      <div class="prev-next">
-        
-        <p class="current">
-          1 / 3
-        </p>
-        
-          <a class="next" rel="next" href="/archives/2020/page/2/">
-            <section class="post next white-box shadow">
-              &nbsp;Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i>
-            </section>
-          </a>
-        
-      </div>
-    
-  
 
 
-	
 </div>
 <aside class='l_side'>
   
@@ -938,87 +606,28 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Hexo</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
+  <header>
     
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
 
-  
 
-  
-    
-    
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#rem%E9%80%82%E9%85%8D%E5%B8%83%E5%B1%80"><span class="toc-text">rem适配布局</span></a></li></ol>
+    </div>
+  </section>
 
-  
 
   
 
 
 </aside>
+
 
 
         
@@ -1028,14 +637,14 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="移动端之rem适配布局";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
 </script>
 
