@@ -459,6 +459,25 @@
 <p>2.媒体查询</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    &#x2F;* 这句话的意思是: 在我们屏幕上  并且  最大的宽度是 800像素 设置我们想要的样式 *&#x2F;</span><br><span class="line">    &#x2F;* max-width 小于等于800 *&#x2F;</span><br><span class="line">    &#x2F;* 媒体查询可以根据不同的屏幕尺寸在改变不同的样式 *&#x2F;</span><br><span class="line"></span><br><span class="line">    @media screen and (max-width: 800px) &#123;</span><br><span class="line">        body &#123;</span><br><span class="line">            background-color: pink;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @media screen and (max-width: 600px) &#123;</span><br><span class="line">        body &#123;</span><br><span class="line">            background-color: purple;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
 
+<p>3.Less基础</p>
+<p>​    1)Less是一门CSS预处理语言，它扩展了CSS的动态特性</p>
+<p>​    2）Less变量</p>
+<p>​        @变量名：值；(大小写敏感，不能带特殊字符，不能以数字开头)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 定义一个粉色的变量</span><br><span class="line">@color: pink;</span><br><span class="line">&#x2F;&#x2F; 错误的变量名  @1color   @color~@#</span><br><span class="line">&#x2F;&#x2F; 变量名区分大小写  @color  和  @Color 是两个不同的变量</span><br><span class="line">&#x2F;&#x2F; 定义了一个 字体为14像素的变量</span><br><span class="line">@font14: 14px;</span><br><span class="line">body&#123;</span><br><span class="line">    background-color: @color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">div&#123;</span><br><span class="line">    color: @color;</span><br><span class="line">    font-size: @font14;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a&#123;</span><br><span class="line">    font-size: @font14;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>​    3）Less编译：包含一套自定义的语法及解析器，编译生成对应CSS文体</p>
+<p>​    4）Less 嵌套</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;后代直接放在父级里</span><br><span class="line">.heard &#123;</span><br><span class="line">	...</span><br><span class="line">	.login&#123;</span><br><span class="line">	...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;如果遇见（交集|伪类|伪元素选择器）前面加&amp;</span><br></pre></td></tr></table></figure>
+
+<p>​    5）Less运算☆</p>
+<p>​        注意：运算符中间左右空格隔开；对于两个不同单位的值之间的运算，结果取第一个值单位</p>
+<p>4.rem适配方案</p>
+<p>​    1）先选标准尺寸750为准</p>
+<p>​    2）屏幕尺寸  除以  划分的份数，得到html里的文字大小，不同屏幕得到不同文字大小</p>
+<p>​    3）页面元素rem值 = 页面元素在750像素下的px值 / html里面文字的大小</p>
+<p>​    注意：45rem = 45 * 根据页面大小变化的html里面的font-size</p>
 
   
   
@@ -493,7 +512,7 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-15T15:10:30+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-15T15:37:28+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：Oct 15, 2020</p>
