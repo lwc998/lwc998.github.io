@@ -19,7 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>jQuery之第二天 - Hexo</title>
+  <title>tags - Hexo</title>
   
 
   
@@ -314,7 +314,7 @@
     <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper post dock' style="display: none;">
+        <div id="full" class='cover-wrapper page dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -390,7 +390,7 @@
         
 
 <div class='l_main'>
-  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  <article class="article post white-box reveal md shadow article-type-page" id="page" itemscope itemprop="blogPost">
   
 
 
@@ -400,7 +400,7 @@
     
     
       <h1 class="title">
-        jQuery之第二天
+        tags
       </h1>
       <div class='new-meta-box'>
         
@@ -424,7 +424,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年9月22日</p>
+    <p>发布于：2020年10月15日</p>
   </a>
 </div>
 
@@ -435,7 +435,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="jQuery之第二天" data-path="/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/">
+      <div id="lc-pv" data-title="tags" data-path="/tags/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -452,69 +452,8 @@
 
 
   
-  <h3 id="jQuery属性操作"><a href="#jQuery属性操作" class="headerlink" title="jQuery属性操作"></a>jQuery属性操作</h3><p>1.设置或获取元素固有属性 prop()</p>
-<p>​    1)设置属性语法：prop(“属性名”)</p>
-<p>​    2)设置属性语法：prop(“属性名”,”值”)</p>
-<p>2.设置或获取元素自定义属性值 attr()</p>
-<p>​    1）获取：attr(“属性名”) //类似原生getAttribute()</p>
-<p>​    2）设置：attr(“属性名”，“值”)  //类似原生setAttribute()</p>
-<p>​    该方法也可获取H5自定义属性data-</p>
-<p>​    3）数据缓存data():存放在元素内存里</p>
-<p>​        获取H5自定义属性data-index，括号里不用加data-，返回数字型</p>
-<p>3.:check选择器：查找表单被选中的个数</p>
-<p>​    1）属性：checked  true或false  选中表单复选框与否</p>
-<h4 id="jQuery内容文本值"><a href="#jQuery内容文本值" class="headerlink" title="jQuery内容文本值"></a>jQuery内容文本值</h4><p>1.普通元素内容：相当于原生innerHTML</p>
-<p>​    1）html() 获取元素内容</p>
-<p>​    2）html() 设置元素内容</p>
-<p>2.文本内容：相当于innerText()</p>
-<p>​    1)text()、text(“内容”)</p>
-<p>3.获取设置表单值：val()、val(“内容”)</p>
-<p>+1）parents(‘选择器’)：可以返回指定祖先元素</p>
-<p>  2）保留两位小数：toFixed(2)方法</p>
-<h4 id="jQuery元素操作"><a href="#jQuery元素操作" class="headerlink" title="jQuery元素操作"></a>jQuery元素操作</h4><p>1.each()方法遍历元素：$(“div”).each(function(索引号i, domEle DOM元素对象))—&gt;jQ对象$(domEle)</p>
-<p>2.$each(obj, function(i, ele){})</p>
-<p>​    1）可遍历任何对象，主要用于处理数据，比如数组，对象</p>
-<p>​    2）i是每个元素索引号，ele遍历内容</p>
-<p>3.创建元素：$(“<li></li>“)</p>
-<p>4.添加元素：</p>
-<p>​    1）内部添加：$(“ul”).append(li) 添加在后面</p>
-<p>​                             $(“ul”).prepend(li) 添加在前面</p>
-<p>​        内部添加是父子关系</p>
-<p>​    2）外部添加：element.after(“内容”) 添加在后面</p>
-<p>​                             element.before(“内容”) 添加在前面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var div &#x3D; $(&quot;&lt;div&gt;我是后妈生的&lt;&#x2F;div&gt;&quot;);</span><br><span class="line">$(&quot;.test&quot;).after(div);</span><br></pre></td></tr></table></figure>
-
-
-
-<p>5.删除元素：</p>
-<p>​    1）element.remove() //元素本身</p>
-<p>​    2）element.empty() //元素里面的子节点</p>
-<p>​    3）element.html(“”) //元素里面的子节点</p>
-
   
   
-    
-    <div class='footer'>
-      
-      
-      
-        <div class='copyright'>
-          <blockquote>
-            
-              
-                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-              
-            
-              
-                <p>本文永久链接是：<a href=http://yoursite.com/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/>http://yoursite.com/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/</a></p>
-              
-            
-          </blockquote>
-        </div>
-      
-      
-    </div>
   
   
     
@@ -524,10 +463,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-22T14:51:20+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-15T16:56:38+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月22日</p>
+    <p>更新于：2020年10月15日</p>
   </a>
 </div>
 
@@ -546,7 +485,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/&title=jQuery之第二天 - Hexo&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/tags/index.html&title=tags - Hexo&summary="
           
           >
           
@@ -558,7 +497,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/&title=jQuery之第二天 - Hexo&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://yoursite.com/tags/index.html&title=tags - Hexo&summary="
           
           >
           
@@ -570,7 +509,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/09/22/jQuery%E4%B9%8B%E7%AC%AC%E4%BA%8C%E5%A4%A9/&title=jQuery之第二天 - Hexo&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/tags/index.html&title=tags - Hexo&summary="
           
           >
           
@@ -597,25 +536,6 @@
   
   
 
-  
-    <div class="prev-next">
-      
-        <a class='prev' href='/2020/09/23/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%89%E5%A4%A9/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>jQuery之第三天</p>
-          <p class='content'>jQuery事件1.jQuery事件注册
-​    1）单个事件注册：$().cilck(function(){})
-​    2）事件处理on()绑定事件
-1234&#x2F;&#x2F;on...</p>
-        </a>
-      
-      
-        <a class='next' href='/2020/09/21/jQuery%E4%B9%8B%E7%AC%AC%E4%B8%80%E5%A4%A9/'>
-          <p class='title'>jQuery之第一天<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>jQuery入门1.jQuery的入口函数
-1234561）$(function()&#123;	...&#x2F;&#x2F;此处是页面DOM加载完成的入口&#125;)2）$(documen...</p>
-        </a>
-      
-    </div>
   
 </article>
 
@@ -645,20 +565,6 @@
 
 
 
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
-    
-  <header>
-    
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-    <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery%E5%B1%9E%E6%80%A7%E6%93%8D%E4%BD%9C"><span class="toc-text">jQuery属性操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jQuery%E5%86%85%E5%AE%B9%E6%96%87%E6%9C%AC%E5%80%BC"><span class="toc-text">jQuery内容文本值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jQuery%E5%85%83%E7%B4%A0%E6%93%8D%E4%BD%9C"><span class="toc-text">jQuery元素操作</span></a></li></ol></li></ol>
-    </div>
-  </section>
-
 
   
 
@@ -674,8 +580,8 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=true;
-  pdata.postTitle="jQuery之第二天";
+  pdata.ispage=false;
+  pdata.postTitle="";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
