@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.18" />
+    <style>
+      :root {
+        --vp-c-bg: #fff;
+      }
+
+      [data-theme='dark'] {
+        --vp-c-bg: #1b1b1f;
+      }
+
+      html,
+      body {
+        background-color: var(--vp-c-bg);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem('vuepress-color-scheme')
+      const systemDarkMode =
+        'matchMedia' in window
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          : false
+
+      if (userMode === 'light') {
+        document.documentElement.dataset.theme = 'light'
+      } else if (userMode === 'dark' || systemDarkMode) {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+    <link rel="icon" href="/logo.png"><title>Lin's Blog</title><meta name="description" content="My first VuePress Site">
+    <link rel="preload" href="/assets/style-kNFEzMjQ.css" as="style"><link rel="stylesheet" href="/assets/style-kNFEzMjQ.css">
+    <link rel="modulepreload" href="/assets/app-Dq_mPPFb.js"><link rel="modulepreload" href="/assets/404.html-DSnuKGFs.js">
+    <link rel="prefetch" href="/assets/index.html-v_NsIHvV.js" as="script"><link rel="prefetch" href="/assets/get-started.html-CIbZmEA6.js" as="script"><link rel="prefetch" href="/assets/vue-difference.html-BcebUJmw.js" as="script"><link rel="prefetch" href="/assets/vue-principle.html-SsmUbosh.js" as="script"><link rel="prefetch" href="/assets/module.html-CWqBWgHJ.js" as="script"><link rel="prefetch" href="/assets/webpack.html-5MLBKT6r.js" as="script"><link rel="prefetch" href="/assets/node-base.html-Di73ImuU.js" as="script"><link rel="prefetch" href="/assets/node-frame.html-CntAibvz.js" as="script"><link rel="prefetch" href="/assets/es6.html-B74CcLsB.js" as="script"><link rel="prefetch" href="/assets/js-base.html-CUwq0ilI.js" as="script"><link rel="prefetch" href="/assets/js-environment.html-C8JJeQ_d.js" as="script">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="vp-theme-container" vp-container data-v-023fd013><main class="page" data-v-023fd013><div class="theme-default-content" vp-content data-v-023fd013><h1 data-v-023fd013>404</h1><blockquote data-v-023fd013>How did we get here?</blockquote><a class="route-link" href="/" data-v-023fd013>Take me home</a></div></main></div><!--[--><!----><!--]--><!--]--></div>
+    <script type="module" src="/assets/app-Dq_mPPFb.js" defer></script>
+  </body>
+</html>
